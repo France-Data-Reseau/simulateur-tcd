@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Territoire Connecté et Durable — Observatoire des Territoires Connectés et Durables</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Inter:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Charte FNCCR — couleurs extraites du logo fourni (dégradé bleu marine → bleu pervenche) */
+  --tactis-blue:#004C92;
+  --tactis-blue-dark:#00366B;
+  --tactis-mint:#A8B2D5;
+
+  --ink:#0E1524;
+  --paper:#F4F6FA;
+  --panel:#FFFFFF;
+  --line:#DDE2F0;
+  --line-soft:#EAEDF6;
+  --muted:#5B6478;
+
+  --eau-700:#00366B;
+  --eau-600:#004C92;
+  --eau-100:#E3E8F4;
+
+  --lum-700:#8C5E0C;
+  --lum-600:#C08A1E;
+  --lum-100:#FBF1DC;
+
+  /* Couleurs des cas d'usage (palette FNCCR) : 600 = couleur imposée, 700 = texte des pastilles, 100 = fond clair. --eau-* et --lum-* restent réservées à l'interface générale. */
+  --cas-eau-700:#1E7B75;
+  --cas-eau-600:#29ABA3;
+  --cas-eau-100:#EAF7F6;
+
+  --cas-ep-700:#97630C;
+  --cas-ep-600:#DE9111;
+  --cas-ep-100:#FCF4E7;
+
+  --cas-energie-700:#1D72AA;
+  --cas-energie-600:#248ED5;
+  --cas-energie-100:#E9F4FB;
+
+  --cas-pav-700:#556879;
+  --cas-pav-600:#556879;
+  --cas-pav-100:#EEF0F2;
+
+  --cas-bacs-700:#556879;
+  --cas-bacs-600:#556879;
+  --cas-bacs-100:#EEF0F2;
+
+  --cas-arrosage-700:#1E7B75;
+  --cas-arrosage-600:#29ABA3;
+  --cas-arrosage-100:#EAF7F6;
+
+  --cas-inondation-700:#AE5547;
+  --cas-inondation-600:#EB7360;
+  --cas-inondation-100:#FDF1EF;
+
+  --positive-700:#0B6E52;
+  --positive-600:#0F8F6B;
+  --positive-100:#E1FAF1;
+
+  --negative-700:#8C3B24;
+  --negative-600:#AC4A2E;
+  --negative-100:#F7E8E2;
+
+  --radius:10px;
+  --shadow:0 1px 2px rgba(14,21,36,.06), 0 8px 24px -12px rgba(14,21,36,.14);
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.num-font{font-family:'Space Grotesk',system-ui,sans-serif;}
+
+.wrap{max-width:980px;margin:0 auto;padding:0 24px 96px;}
+
+/* ---------- header ---------- */
+header.top{
+  background:var(--tactis-blue);
+  border-bottom:1px solid var(--tactis-blue-dark);
+}
+header.top .inner{
+  max-width:980px;margin:0 auto;padding:26px 24px 24px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.logos{display:flex;align-items:center;gap:18px;flex:none;}
+.logos img.fnccr{height:58px;width:auto;display:block;}
+/* Le logo Banque des Territoires (rouge et brun) garde ses couleurs d'origine : il est posé sur un cartouche blanc, à côté du logo FNCCR */
+.logo-chip{background:#fff;border-radius:8px;padding:5px 9px;display:flex;align-items:center;flex:none;}
+.logo-chip img.bdt{height:52px;width:auto;display:block;}
+header.top .head-text{flex:1;min-width:260px;}
+h1.title{
+  font-size:27px;font-weight:700;margin:0 0 6px;letter-spacing:-.01em;color:#fff;
+}
+.subtitle{color:#DCE4FF;font-size:15px;max-width:600px;margin:0;}
+
+/* ---------- steps ---------- */
+.step{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 24px;
+  margin-top:20px;
+  box-shadow:var(--shadow);
+}
+.step[data-locked="true"]{opacity:.45;pointer-events:none;}
+.step-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;}
+.step-num{
+  font-family:'Space Grotesk';font-weight:600;font-size:13px;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;
+  width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex:none;
+}
+.step-title{font-size:16.5px;font-weight:600;margin:0;}
+.step-desc{color:var(--muted);font-size:13.8px;margin:2px 0 0 32px;}
+
+/* ---------- search ---------- */
+.search-wrap{margin:14px 0 0 32px;position:relative;max-width:440px;}
+input.search{
+  width:100%;padding:11px 14px;
+  border:1px solid var(--line);border-radius:8px;
+  font-family:'Inter';font-size:14.5px;color:var(--ink);
+  background:var(--panel);
+}
+input.search:focus{outline:none;border-color:var(--eau-600);box-shadow:0 0 0 3px var(--eau-100);}
+.results-list{
+  position:absolute;top:calc(100% + 6px);left:0;right:0;
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  box-shadow:var(--shadow);max-height:280px;overflow-y:auto;z-index:10;display:none;
+}
+.results-list.show{display:block;}
+.result-item{
+  padding:9px 14px;cursor:pointer;font-size:13.8px;
+  display:flex;justify-content:space-between;gap:10px;
+  border-bottom:1px solid var(--line-soft);
+}
+.result-item:last-child{border-bottom:none;}
+.result-item:hover{background:var(--eau-100);}
+.result-item .name{font-weight:600;}
+.result-item .meta{color:var(--muted);font-size:12.5px;white-space:nowrap;}
+.type-pill{
+  font-size:10px;font-weight:600;padding:1.5px 6px;border-radius:999px;
+  margin-left:6px;letter-spacing:.02em;
+}
+.type-pill.commune{background:var(--eau-100);color:var(--eau-700);}
+.type-pill.epci{background:var(--lum-100);color:var(--lum-700);}
+.type-pill.dep{background:#E6FBF4;color:var(--positive-700);}
+
+/* ---------- tableau indicateurs marché ---------- */
+/* ---------- répartition des dépenses par poste ---------- */
+.depenses-breakdown-wrap{padding:16px 22px 4px;}
+.depenses-breakdown .label{font-size:12px;color:var(--muted);}
+.depenses-bar{
+  display:flex;width:100%;height:14px;border-radius:7px;overflow:hidden;
+  background:var(--line-soft);
+}
+.depenses-bar > div{min-width:2px;}
+.depenses-legend{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin-top:12px;
+}
+@media(max-width:560px){.depenses-legend{grid-template-columns:1fr;}}
+.depenses-legend-item{display:flex;align-items:center;gap:7px;font-size:12.5px;}
+.depenses-legend-item i{width:9px;height:9px;border-radius:2px;flex:none;}
+.depenses-legend-item .lbl{color:var(--ink);flex:1;}
+.depenses-legend-item .val{font-family:'Space Grotesk';font-weight:600;white-space:nowrap;}
+.depenses-legend-item .pct{color:var(--muted);width:34px;text-align:right;flex:none;}
+
+/* ---------- bilan environnemental ---------- */
+.env-row{
+  padding:14px 22px 4px;border-top:1px solid var(--line-soft);margin-top:6px;
+}
+.env-title{font-size:11.5px;color:var(--muted);margin-bottom:8px;max-width:640px;}
+.env-legend{font-size:11.5px;color:var(--muted);margin:-2px 0 8px;max-width:640px;}
+.env-metrics{background:var(--paper);border-radius:8px;overflow:hidden;}
+.env-metrics .metric{background:var(--paper);padding:12px 16px;}
+.env-metrics .metric .value{font-size:18px;}
+
+.market-table-wrap{padding:4px 22px 0;overflow-x:auto;}
+table.market-table{width:100%;border-collapse:collapse;font-size:13.3px;}
+table.market-table th{
+  text-align:right;font-weight:600;color:var(--muted);font-size:11.8px;
+  padding:10px 8px;border-bottom:1px solid var(--line);white-space:nowrap;
+}
+table.market-table th:first-child{text-align:left;}
+table.market-table td{padding:9px 8px;border-bottom:1px solid var(--line-soft);}
+table.market-table tr:last-child td{border-bottom:none;}
+table.market-table tr.total td{font-weight:600;border-top:2px solid var(--line);}
+.note-block{padding:12px 22px 0;font-size:12.3px;color:var(--muted);line-height:1.5;}
+table.market-table td.lbl{color:var(--ink);}
+table.market-table td.val{
+  text-align:right;font-family:'Space Grotesk';font-weight:500;white-space:nowrap;
+}
+table.market-table td.evol{
+  text-align:right;font-family:'Space Grotesk';font-weight:600;
+  white-space:nowrap;font-size:12.8px;
+}
+table.market-table td.evol.up{color:var(--positive-700);}
+table.market-table td.evol.down{color:var(--negative-700);}
+
+.commune-chip{
+  margin:14px 0 0 32px;display:none;
+  align-items:center;gap:10px;
+  background:var(--eau-100);border:1px solid var(--eau-600);
+  border-radius:8px;padding:10px 14px;max-width:520px;
+}
+.commune-chip.show{display:flex;}
+.commune-chip .info{flex:1;}
+.commune-chip .name{font-weight:700;font-size:14.5px;}
+.commune-chip .meta{color:var(--eau-700);font-size:12.8px;margin-top:1px;}
+.commune-chip button{
+  background:none;border:none;color:var(--eau-700);font-size:12.5px;
+  cursor:pointer;text-decoration:underline;padding:0;font-family:'Inter';
+}
+
+/* ---------- cas usage toggles ---------- */
+/* ---------- ajustement du périmètre (exclusion communes / EPCI) ---------- */
+.adjust-link{
+  margin:10px 0 0 32px;background:none;border:none;padding:0;
+  color:var(--eau-700);font-size:12.8px;font-weight:600;cursor:pointer;
+  text-decoration:underline;font-family:'Inter';
+}
+.adjust-panel{
+  margin:10px 0 0 32px;max-width:560px;
+  border:1px solid var(--line);border-radius:8px;background:var(--panel);
+  padding:14px 16px;display:none;
+}
+.adjust-panel.show{display:block;}
+.adjust-panel h4{margin:0 0 4px;font-size:13px;}
+.adjust-panel .sub{font-size:12px;color:var(--muted);margin-bottom:10px;}
+.epci-toggle-list{
+  max-height:140px;overflow-y:auto;border:1px solid var(--line-soft);border-radius:6px;
+  padding:6px 10px;margin-bottom:12px;
+}
+.commune-toggle-list{max-height:220px;}
+.epci-toggle-row{
+  display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12.8px;
+}
+.epci-toggle-row label{flex:1;cursor:pointer;}
+.epci-toggle-row .n{color:var(--muted);font-size:11.5px;}
+.exclude-search-wrap{position:relative;}
+input.exclude-search{
+  width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:6px;
+  font-family:'Inter';font-size:13px;
+}
+.exclude-results{
+  position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:10;
+  background:var(--panel);border:1px solid var(--line);border-radius:6px;
+  box-shadow:var(--shadow);max-height:180px;overflow-y:auto;display:none;
+}
+.exclude-results.show{display:block;}
+.exclude-results .item{
+  padding:7px 12px;font-size:12.8px;cursor:pointer;border-bottom:1px solid var(--line-soft);
+}
+.exclude-results .item:last-child{border-bottom:none;}
+.exclude-results .item:hover{background:var(--negative-100);}
+.excluded-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.excluded-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--negative-100);color:var(--negative-700);
+  border-radius:999px;padding:4px 6px 4px 10px;font-size:12px;font-weight:600;
+}
+.excluded-chip button{
+  background:none;border:none;color:var(--negative-700);cursor:pointer;
+  font-size:14px;line-height:1;padding:0 3px;font-family:'Inter';
+}
+.adjust-summary{font-size:12.3px;color:var(--muted);margin-top:2px;}
+
+/* ---------- panneaux de saisie manuelle par cas d'usage ---------- */
+.input-panel{
+  border:1px solid var(--line);border-radius:8px;background:var(--panel);
+  padding:16px 18px;margin-bottom:12px;
+}
+.input-panel-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.input-panel-head .cas-block-icon{width:24px;height:24px;}
+.input-panel-head h4{margin:0;font-size:14px;}
+.input-subgroup + .input-subgroup{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft);}
+.input-subgroup .subtitle{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.02em;}
+.input-fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+@media(max-width:640px){.input-fields{grid-template-columns:1fr;}}
+.input-field label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px;}
+.input-field input{
+  width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;
+  font-family:'Inter';font-size:13.5px;
+}
+.input-field input:focus{outline:none;border-color:var(--eau-600);box-shadow:0 0 0 3px var(--eau-100);}
+.input-field select{
+  width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);
+  font-family:'Inter';font-size:13.5px;
+}
+.input-field select:focus{outline:none;border-color:var(--cas-inondation-600);box-shadow:0 0 0 3px var(--cas-inondation-100);}
+.input-fields.single{grid-template-columns:minmax(220px,320px);}
+.input-hint{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5;}
+.input-field.pct input{background:var(--paper);}
+.input-field .req{color:var(--negative-600);}
+.input-error{
+  display:none;margin-top:8px;padding:8px 10px;border-radius:6px;
+  background:var(--negative-100);color:var(--negative-700);font-size:12.3px;
+}
+.input-error.show{display:block;}
+
+.cas-grid{margin:14px 0 0 32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;max-width:820px;}
+@media(max-width:820px){.cas-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:520px){.cas-grid{grid-template-columns:1fr;}}
+.cas-card{
+  border:1.5px solid var(--line);border-radius:8px;padding:15px 56px 15px 16px;
+  cursor:pointer;position:relative;transition:border-color .15s,background .15s;
+}
+.cas-card input{position:absolute;opacity:0;pointer-events:none;}
+.cas-card-icon{
+  position:absolute;top:14px;right:14px;width:34px;height:34px;object-fit:contain;
+}
+.cas-card .tag{
+  display:inline-block;font-size:11.5px;font-weight:600;
+  padding:2px 8px;border-radius:5px;margin-bottom:8px;
+}
+.cas-card.eau .tag{background:var(--cas-eau-100);color:var(--cas-eau-700);}
+.cas-card.lum .tag{background:var(--cas-ep-100);color:var(--cas-ep-700);}
+.cas-card.energie .tag{background:var(--cas-energie-100);color:var(--cas-energie-700);}
+.cas-card.pav .tag{background:var(--cas-pav-100);color:var(--cas-pav-700);}
+.cas-card.bacs .tag{background:var(--cas-bacs-100);color:var(--cas-bacs-700);}
+.cas-card.arrosage .tag{background:var(--cas-arrosage-100);color:var(--cas-arrosage-700);}
+.cas-card.inondation .tag{background:var(--cas-inondation-100);color:var(--cas-inondation-700);}
+.cas-card .name{font-weight:600;font-size:14.5px;margin-bottom:3px;}
+.cas-card .desc{color:var(--muted);font-size:12.6px;}
+.cas-card.checked.eau{border-color:var(--cas-eau-600);background:var(--cas-eau-100);}
+.cas-card.checked.lum{border-color:var(--cas-ep-600);background:var(--cas-ep-100);}
+.cas-card.checked.energie{border-color:var(--cas-energie-600);background:var(--cas-energie-100);}
+.cas-card.checked.pav{border-color:var(--cas-pav-600);background:var(--cas-pav-100);}
+.cas-card.checked.bacs{border-color:var(--cas-bacs-600);background:var(--cas-bacs-100);}
+.cas-card.checked.arrosage{border-color:var(--cas-arrosage-600);background:var(--cas-arrosage-100);}
+.cas-card.checked.inondation{border-color:var(--cas-inondation-600);background:var(--cas-inondation-100);}
+
+.compute-btn{
+  margin:18px 0 0 32px;
+  background:var(--tactis-blue);color:#fff;border:none;
+  font-family:'Space Grotesk';font-weight:600;font-size:14.5px;
+  padding:12px 22px;border-radius:8px;cursor:pointer;
+  transition:background .15s;
+}
+.compute-btn:hover{background:var(--tactis-blue-dark);}
+.compute-btn:disabled{background:var(--line);color:var(--muted);cursor:not-allowed;}
+
+/* ---------- results ---------- */
+#results{margin-top:32px;display:none;}
+#results.show{display:block;}
+
+.territory-banner{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--panel);margin-bottom:22px;
+}
+.territory-banner h2{margin:0;font-size:19px;}
+.territory-banner .sub{color:var(--muted);font-size:13.2px;margin-top:2px;}
+.strate-badge{
+  font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;
+  border:1px solid var(--line);color:var(--muted);
+}
+
+.cas-block{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--panel);margin-bottom:20px;overflow:hidden;
+}
+.cas-block-head{
+  padding:16px 22px;border-bottom:1px solid var(--line-soft);
+  display:flex;align-items:center;gap:12px;
+}
+.cas-block-icon{width:30px;height:30px;object-fit:contain;flex:none;}
+.cas-block-head h3{margin:0;font-size:16px;}
+.assiette-note{padding:0 22px 8px;font-size:11.5px;color:var(--muted);margin-top:-4px;}
+
+.metrics-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--line-soft);
+}
+.metric{background:var(--panel);padding:16px 22px;}
+.metric .label{font-size:12px;color:var(--muted);margin-bottom:6px;}
+.metric .value{font-family:'Space Grotesk';font-size:22px;font-weight:600;}
+.metric .value.pos{color:var(--positive-700);}
+.metric .value.neg{color:var(--negative-700);}
+.metrics-row.four{grid-template-columns:repeat(4,1fr);}
+@media(max-width:900px){.metrics-row.four{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.metrics-row,.metrics-row.four{grid-template-columns:1fr;}}
+
+.chart-area{padding:18px 22px 22px;}
+.chart-legend{display:flex;gap:18px;font-size:12px;color:var(--muted);margin-bottom:10px;}
+.chart-legend span{display:flex;align-items:center;gap:6px;}
+.chart-legend i{width:9px;height:9px;border-radius:2px;display:inline-block;}
+
+/* ---------- mutualisation ---------- */
+.mut-block{
+  border:1.5px solid var(--tactis-blue);border-radius:var(--radius);
+  background:var(--panel);margin-bottom:20px;overflow:hidden;
+}
+.mut-head{padding:18px 22px 4px;}
+.mut-head h3{margin:0 0 4px;font-size:17px;}
+.mut-head p{margin:0;color:var(--muted);font-size:13.3px;max-width:560px;}
+.mut-compare{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  gap:18px;padding:20px 22px;
+}
+@media(max-width:640px){.mut-compare{grid-template-columns:1fr;}}
+.mut-col{padding:16px 18px;border-radius:8px;background:var(--paper);border:1px solid var(--line);}
+.mut-col .kicker{font-size:11.5px;color:var(--muted);font-weight:600;margin-bottom:8px;}
+.mut-col .depenses{font-family:'Space Grotesk';font-size:24px;font-weight:600;}
+.mut-col .solde{font-size:13px;margin-top:6px;color:var(--muted);}
+.mut-col.mutualise{border-color:var(--positive-600);background:var(--positive-100);}
+.mut-arrow{
+  font-family:'Space Grotesk';font-size:12.5px;color:var(--muted);text-align:center;
+}
+.mut-detail-title{padding:0 22px 4px;font-size:12.5px;font-weight:600;color:var(--muted);}
+.mut-detail{padding-bottom:4px;}
+table.mut-table{font-size:13px;}
+/* L'économie de mutualisation par cas d'usage est mise en avant : colonne verte, valeurs en gras */
+table.mut-table th.eco{color:var(--positive-700);background:var(--positive-100);}
+table.mut-table td.eco{font-weight:700;color:var(--positive-700);background:var(--positive-100);}
+.mut-detail + .mut-callout{margin-top:18px;}
+.mut-callout{
+  margin:0 22px 22px;padding:16px 18px;border-radius:8px;
+  background:var(--tactis-blue-dark);color:#fff;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+}
+.mut-callout .big{font-family:'Space Grotesk';font-size:26px;font-weight:700;color:var(--tactis-mint);}
+.mut-callout .txt{font-size:13.5px;color:#C9D6FF;}
+
+.empty-hint{
+  color:var(--muted);font-size:13.5px;padding:14px 22px;
+}
+footer.note{
+  margin-top:28px;padding-top:18px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:12px;line-height:1.6;
+}
+
+/* ---------- export PDF ---------- */
+.pdf-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--panel);color:var(--eau-700);
+  border:1.5px solid var(--eau-600);border-radius:8px;
+  padding:8px 14px;font-family:'Inter';font-weight:600;font-size:13px;
+  cursor:pointer;flex:none;transition:background .15s;
+}
+.pdf-btn:hover{background:var(--eau-100);}
+.pdf-btn svg{width:14px;height:14px;flex:none;}
+
+.print-footer{display:none;}
+
+@media print{
+  body{background:#fff;}
+  .wrap{max-width:100%;padding:0 8mm 8mm;}
+  header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .step, .pdf-btn, footer.note{display:none !important;}
+  #results{margin-top:14px;}
+  .territory-banner, .cas-block, .mut-block{
+    box-shadow:none;break-inside:avoid;
+  }
+  .cas-block, .mut-block{margin-bottom:14px;}
+  .chart-area, .market-table-wrap, .depenses-breakdown-wrap{break-inside:avoid;}
+  .print-footer{
+    display:block;margin-top:18px;padding-top:10px;
+    border-top:1px solid var(--line);color:var(--muted);font-size:10.5px;line-height:1.6;
+  }
+  @page{margin:14mm;}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <div class="logos">
+      <img class="fnccr" src="data:image/png;base64,__FNCCR_LOGO_B64__" alt="FNCCR">
+      <div class="logo-chip"><img class="bdt" src="data:image/png;base64,__BDT_LOGO_B64__" alt="Banque des Territoires — Groupe Caisse des Dépôts"></div>
+    </div>
+    <div class="head-text">
+      <h1 class="title">Mon Territoire Connecté et Durable</h1>
+      <p class="subtitle">Simulez le coût, les externalités et le bilan environnemental de vos cas d'usage connectés sur 10 ans (2027-2036), avec vos propres données de parc lorsque vous les connaissez.</p>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- STEP 1 : select territory -->
+  <div class="step" id="step2">
+    <div class="step-head"><span class="step-num">1</span><h2 class="step-title">Choisissez votre territoire</h2></div>
+    <p class="step-desc">Recherchez une commune, une intercommunalité ou un département — les deux derniers cumulent automatiquement toutes leurs communes.</p>
+    <div class="search-wrap">
+      <input type="text" class="search" id="searchInput" placeholder="Ex. Roanne, CA Roannais Agglomération, Loire…" autocomplete="off">
+      <div class="results-list" id="resultsList"></div>
+    </div>
+    <div class="commune-chip" id="communeChip">
+      <div class="info">
+        <div class="name" id="chipName"></div>
+        <div class="meta" id="chipMeta"></div>
+      </div>
+      <button id="chipClear">changer</button>
+    </div>
+    <div id="adjustWrap"></div>
+  </div>
+
+  <!-- STEP 3 : cas d'usage -->
+  <div class="step" id="step3" data-locked="true">
+    <div class="step-head"><span class="step-num">2</span><h2 class="step-title">Activez un ou plusieurs cas d'usage</h2></div>
+    <p class="step-desc">Cochez les cas d'usage à simuler pour ce territoire.</p>
+    <div class="cas-grid" id="casGrid"></div>
+  </div>
+
+  <!-- STEP 4 : données optionnelles + calcul -->
+  <div class="step" id="step4" data-locked="true">
+    <div class="step-head"><span class="step-num">3</span><h2 class="step-title">Vos données (facultatif)</h2></div>
+    <p class="step-desc">Pour chaque cas d'usage activé, renseignez, lorsque vous les connaissez le nombre d'objets et d'objets connectés en 2026, et le taux d'objets connectés visé en 2036. Lorsque le nombre d'objets et / ou le nombre d'objets connectés est laissé vide, alors le modèle utilise les données du modèle national, à partir des données de points de livraison à la maille commune. Pour la surveillance inondation, seule la date de déploiement du système de surveillance (de 2026 à 2036) est à renseigner.</p>
+    <div id="inputsWrap"></div>
+    <button class="compute-btn" id="computeBtn">Calculer le bilan sur 10 ans</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results"></div>
+
+  <footer class="note">
+    Hypothèses issues du modèle national de l'Observatoire des Territoires Connectés et Durables (3ᵉ édition, FNCCR × Tactis), extrapolées à l'échelle du territoire sélectionné à partir de la population, ou de vos données saisies quand elles sont disponibles. Simulation indicative — ne remplace pas une étude de faisabilité locale.
+  </footer>
+
+</div>
+
+<script>
+__ENGINE_JS__
+</script>
+<script>
+const HYPOTHESES = __HYPOTHESES_JSON__;
+</script>
+<script>
+// Référentiel communes embarqué — tableau positionnel pour limiter la taille du fichier :
+// [code_insee, nom_standard, dep_code, dep_nom, epci_code, epci_nom, population, nombre_menages, Strate, nombre_points_livraison]
+const COMMUNES_RAW = __COMMUNES_JSON__;
+</script>
+<script>
+__APP_JS__
+</script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+﻿cas_usage;categorie;bloc;hypothese;strate;unite;valeur;note_source
+Eau - télérelève des compteurs;Structure territoriale;Répartition du parc;Poids du parc de compteurs (ménages) par strate;Métropole;%;0.252;Analyse Tactis / INSEE - poids ménages par type de territoire | MàJ V1.2 (avant : 0.2915) — recalage V1.2 sur 27 M d'abonnés (SISPEA)
+Eau - télérelève des compteurs;Structure territoriale;Répartition du parc;Poids du parc de compteurs (ménages) par strate;>30k hab;%;0.144;Analyse Tactis / INSEE | MàJ V1.2 (avant : 0.1348) — recalage V1.2 sur 27 M d'abonnés (SISPEA)
+Eau - télérelève des compteurs;Structure territoriale;Répartition du parc;Poids du parc de compteurs (ménages) par strate;2-30k hab;%;0.394;Analyse Tactis / INSEE | MàJ V1.2 (avant : 0.1859) — recalage V1.2 sur 27 M d'abonnés (SISPEA)
+Eau - télérelève des compteurs;Structure territoriale;Répartition du parc;Poids du parc de compteurs (ménages) par strate;<2k hab;%;0.21;Analyse Tactis / INSEE | MàJ V1.2 (avant : 0.3879) — recalage V1.2 sur 27 M d'abonnés (SISPEA)
+Eau - télérelève des compteurs;Marché;Parc;Croissance du parc de compteurs;Toutes strates;%/an;0.009;SISPEA, construction neuve INSEE Sit@del2
+Eau - télérelève des compteurs;Marché;Parc;Taux de compteurs télérelevés (base 2025);Toutes strates;%;0.28;"Etude Tactis 2023 connectivité eau | MàJ V1.2 (avant : 0.25) — V1.2 : 28 % codé en dur dans l'onglet Eau (G7) ; PILOTAGE r7 affiche encore 25 %"
+Eau - télérelève des compteurs;Marché;Parc;Croissance du parc télérelevé;Toutes strates;%/an;0.08;Etude Tactis 2023 connectivité eau
+Eau - télérelève des compteurs;Marché;Parc;Part des compteurs connectés en réseau LoRa/NB-IoT/Wize (base 2025);Toutes strates;%;0.75;"Plafond technique 95% - étude Tactis 2022 | MàJ V1.2 (avant : 0.65) — valeur active PILOTAGE ; scénario central V1.2 = 0,65 ; plafond ramené à 92 %"
+Eau - télérelève des compteurs;Économique;Économie eau;Volume consommé par abonné;Toutes strates;m³/an;120;Facture-type SISPEA (≈148 l/j/hab)
+Eau - télérelève des compteurs;Économique;Économie eau;Économie d'eau générée par la télérelève;Toutes strates;%/an;0.05;"Fourchette documentée 2-7% - bonnespratiques-eau.fr | MàJ V1.2 (avant : 0.035) — 5 %/an retenu en V1.2 (fourchette 2-7 % ; V1.0 : 3,5 %)"
+Eau - télérelève des compteurs;Économique;Économie eau;Valorisation de l'eau économisée;Toutes strates;€/m³;4.52;Prix complet facture-type 120m³ - SISPEA/Eau France
+Eau - télérelève des compteurs;Économique;Économie relève;Économie de relève (technicien index);Métropole;€/compteur/an;3;≈50% des relèves évitées
+Eau - télérelève des compteurs;Économique;Économie relève;Économie de relève (technicien index);>30k hab;€/compteur/an;5;
+Eau - télérelève des compteurs;Économique;Économie relève;Économie de relève (technicien index);2-30k hab;€/compteur/an;7.5;
+Eau - télérelève des compteurs;Économique;Économie relève;Économie de relève (technicien index);<2k hab;€/compteur/an;10;
+Eau - télérelève des compteurs;Économique;Économie déplacement;Économie déplacement (carburant technicien index);Métropole;€/compteur/an;0.006;0,5 km/compteur, 6l/100km, 1l=1,8€
+Eau - télérelève des compteurs;Économique;Économie déplacement;Économie déplacement (carburant technicien index);>30k hab;€/compteur/an;0.012;
+Eau - télérelève des compteurs;Économique;Économie déplacement;Économie déplacement (carburant technicien index);2-30k hab;€/compteur/an;0.06;
+Eau - télérelève des compteurs;Économique;Économie déplacement;Économie déplacement (carburant technicien index);<2k hab;€/compteur/an;0.12;
+Eau - télérelève des compteurs;Coût projet;CAPEX objets connectés;CAPEX fourni-posé compteur communicant (part numérique 50%);Métropole;€/compteur;110;130€ fourni-posé total, 50% part numérique
+Eau - télérelève des compteurs;Coût projet;CAPEX objets connectés;CAPEX fourni-posé compteur communicant (part numérique 50%);>30k hab;€/compteur;125;
+Eau - télérelève des compteurs;Coût projet;CAPEX objets connectés;CAPEX fourni-posé compteur communicant (part numérique 50%);2-30k hab;€/compteur;145;
+Eau - télérelève des compteurs;Coût projet;CAPEX objets connectés;CAPEX fourni-posé compteur communicant (part numérique 50%);<2k hab;€/compteur;160;
+Eau - télérelève des compteurs;Coût projet;OPEX transmission;Transmission réseau (LoRa/NB-IoT);Métropole;€/compteur/an;2;
+Eau - télérelève des compteurs;Coût projet;OPEX transmission;Transmission réseau (LoRa/NB-IoT);>30k hab;€/compteur/an;2.5;
+Eau - télérelève des compteurs;Coût projet;OPEX transmission;Transmission réseau (LoRa/NB-IoT);2-30k hab;€/compteur/an;4.5;MàJ V1.2 (avant : 3.5) — strate relevée en V1.0
+Eau - télérelève des compteurs;Coût projet;OPEX transmission;Transmission réseau (LoRa/NB-IoT);<2k hab;€/compteur/an;5;MàJ V1.2 (avant : 4.5) — strate relevée en V1.0
+Eau - télérelève des compteurs;Coût projet;Serveurs & hosting;Serveurs et hébergement;Toutes strates;€/compteur/an;0.08;1 serveur / 10 000 compteurs, hosting 1200€/an/serveur
+Eau - télérelève des compteurs;Coût projet;Logiciels;Logiciel SAAS exploitation données;Métropole;€/compteur/an;1.2;≈0,1€/mois/compteur
+Eau - télérelève des compteurs;Coût projet;Logiciels;Logiciel SAAS exploitation données;>30k hab;€/compteur/an;1.3;
+Eau - télérelève des compteurs;Coût projet;Logiciels;Logiciel SAAS exploitation données;2-30k hab;€/compteur/an;2.5;"MàJ V1.2 (avant : 1.5) — SaaS 1-3 €/compteur/an avec paliers plancher pour petits parcs ; relevé en V1.0"
+Eau - télérelève des compteurs;Coût projet;Logiciels;Logiciel SAAS exploitation données;<2k hab;€/compteur/an;4;"MàJ V1.2 (avant : 1.8) — SaaS 1-3 €/compteur/an avec paliers plancher pour petits parcs ; relevé en V1.0"
+Eau - télérelève des compteurs;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé installé);Métropole;%/an du CAPEX cumulé;0.08;Inclut cybersécurité et ETP
+Eau - télérelève des compteurs;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé installé);>30k hab;%/an du CAPEX cumulé;0.1;
+Eau - télérelève des compteurs;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé installé);2-30k hab;%/an du CAPEX cumulé;0.11;
+Eau - télérelève des compteurs;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé installé);<2k hab;%/an du CAPEX cumulé;0.12;
+Eau - télérelève des compteurs;Coût projet;Conduite du changement;Conduite du changement / data science (1 ETP 70 000€ / 100 000 compteurs);Métropole;€/nouveau compteur;0.7;
+Eau - télérelève des compteurs;Coût projet;Conduite du changement;Conduite du changement / data science (1 ETP 70 000€ / 100 000 compteurs);>30k hab;€/nouveau compteur;0.7;
+Eau - télérelève des compteurs;Coût projet;Conduite du changement;Conduite du changement / data science (1 ETP 70 000€ / 100 000 compteurs);2-30k hab;€/nouveau compteur;0.9;
+Eau - télérelève des compteurs;Coût projet;Conduite du changement;Conduite du changement / data science (1 ETP 70 000€ / 100 000 compteurs);<2k hab;€/nouveau compteur;1.2;
+Éclairage public - armoires connectées;Structure territoriale;Répartition du parc;Poids du parc de points lumineux (PL) par strate;Métropole;%;0.1138;Clé recalculée : population × densité PL/hab, normalisée sur le parc national
+Éclairage public - armoires connectées;Structure territoriale;Répartition du parc;Poids du parc de points lumineux (PL) par strate;>30k hab;%;0.1325;
+Éclairage public - armoires connectées;Structure territoriale;Répartition du parc;Poids du parc de points lumineux (PL) par strate;2-30k hab;%;0.1825;
+Éclairage public - armoires connectées;Structure territoriale;Répartition du parc;Poids du parc de points lumineux (PL) par strate;<2k hab;%;0.5712;
+Éclairage public - armoires connectées;Structure territoriale;Densité indicative (à affiner);Densité de points lumineux par habitant (repère entretiens Nantes Métropole / USEDA);Métropole;hab/PL;15;1 PL pour 15 hab en métropole (donnée indicative, non ventilée par les 4 strates dans le modèle)
+Éclairage public - armoires connectées;Structure territoriale;Densité indicative (à affiner);Densité de points lumineux par habitant (repère entretiens Nantes Métropole / USEDA);Urbain/périurbain (≈>30k et 2-30k);hab/PL;6;1 PL pour 6 hab en zone urbaine-périurbaine
+Éclairage public - armoires connectées;Structure territoriale;Densité indicative (à affiner);Densité de points lumineux par habitant (repère entretiens Nantes Métropole / USEDA);Rural (≈<2k);hab/PL;4;1 PL pour 4 hab en zone rurale
+Éclairage public - armoires connectées;Structure territoriale;Ratio armoires;Ratio points lumineux par armoire de commande;Métropole;PL/armoire;65;Analyse Tactis
+Éclairage public - armoires connectées;Structure territoriale;Ratio armoires;Ratio points lumineux par armoire de commande;>30k hab;PL/armoire;48;
+Éclairage public - armoires connectées;Structure territoriale;Ratio armoires;Ratio points lumineux par armoire de commande;2-30k hab;PL/armoire;30;
+Éclairage public - armoires connectées;Structure territoriale;Ratio armoires;Ratio points lumineux par armoire de commande;<2k hab;PL/armoire;18;
+Éclairage public - armoires connectées;Marché;Parc;Croissance du parc de points lumineux;Toutes strates;%/an;0.002;≈11,5M PL - AFE / Syndicat de l'éclairage
+Éclairage public - armoires connectées;Marché;Parc;Taux d'armoires connectées (base 2025);Métropole;%;0.3;
+Éclairage public - armoires connectées;Marché;Parc;Taux d'armoires connectées (base 2025);>30k hab;%;0.25;
+Éclairage public - armoires connectées;Marché;Parc;Taux d'armoires connectées (base 2025);2-30k hab;%;0.25;
+Éclairage public - armoires connectées;Marché;Parc;Taux d'armoires connectées (base 2025);<2k hab;%;0.2;
+Éclairage public - armoires connectées;Marché;Parc;Croissance annuelle du taux d'armoires connectées;Métropole;%/an;0.07;Pondéré par nombre de projets de télégestion
+Éclairage public - armoires connectées;Marché;Parc;Croissance annuelle du taux d'armoires connectées;>30k hab;%/an;0.07;
+Éclairage public - armoires connectées;Marché;Parc;Croissance annuelle du taux d'armoires connectées;2-30k hab;%/an;0.1;
+Éclairage public - armoires connectées;Marché;Parc;Croissance annuelle du taux d'armoires connectées;<2k hab;%/an;0.1;
+Éclairage public - armoires connectées;Économique;Économie énergie;Consommation nationale d'éclairage public (référence, pour info);Toutes strates;MWh/an;5800000;Guide ACTEE
+Éclairage public - armoires connectées;Économique;Économie énergie;Prix de l'électricité;Toutes strates;€/MWh;175;CRE/SDES 2024-2025
+Éclairage public - armoires connectées;Économique;Économie énergie;Économie d'énergie attribuable au numérique (hors effet LED);Toutes strates;%/an;0.01;"Gradation, extinction fine, détection de dérives | MàJ V1.2 (avant : 0.015) — 1 %/an retenu en V1.2 (V1.0 : 0,5 % ; estimation initiale ≈1,5 %)"
+Éclairage public - armoires connectées;Économique;Économie déplacement;Économie déplacement technicien armoire;Métropole;€/armoire/an;30;Diagnostic à distance
+Éclairage public - armoires connectées;Économique;Économie déplacement;Économie déplacement technicien armoire;>30k hab;€/armoire/an;40;
+Éclairage public - armoires connectées;Économique;Économie déplacement;Économie déplacement technicien armoire;2-30k hab;€/armoire/an;50;
+Éclairage public - armoires connectées;Économique;Économie déplacement;Économie déplacement technicien armoire;<2k hab;€/armoire/an;60;
+Éclairage public - armoires connectées;Économique;Économie déplacement;Économie déplacement (carburant technicien armoire);Métropole;€/armoire/an;0.8;8 déplacements/an, 1-7km/armoire, 6l/100km, 1l=1,8€
+Éclairage public - armoires connectées;Économique;Économie déplacement;Économie déplacement (carburant technicien armoire);>30k hab;€/armoire/an;0.96;
+Éclairage public - armoires connectées;Économique;Économie déplacement;Économie déplacement (carburant technicien armoire);2-30k hab;€/armoire/an;2.88;
+Éclairage public - armoires connectées;Économique;Économie déplacement;Économie déplacement (carburant technicien armoire);<2k hab;€/armoire/an;6.72;
+Éclairage public - armoires connectées;Coût projet;CAPEX objets connectés;CAPEX fourni-posé armoire communicante;Métropole;€/armoire;650;"MàJ V1.2 (avant : 700) — contrôleur communicant 600-750 € fourni-posé (SIEL 42) ; V1.0 : 650-750 €"
+Éclairage public - armoires connectées;Coût projet;CAPEX objets connectés;CAPEX fourni-posé armoire communicante;>30k hab;€/armoire;700;"économie d'échelle | MàJ V1.2 (avant : 750) — contrôleur communicant 600-750 € fourni-posé (SIEL 42) ; V1.0 : 650-750 €"
+Éclairage public - armoires connectées;Coût projet;CAPEX objets connectés;CAPEX fourni-posé armoire communicante;2-30k hab;€/armoire;750;"MàJ V1.2 (avant : 850) — contrôleur communicant 600-750 € fourni-posé (SIEL 42) ; V1.0 : 650-750 €"
+Éclairage public - armoires connectées;Coût projet;CAPEX objets connectés;CAPEX fourni-posé armoire communicante;<2k hab;€/armoire;750;"MàJ V1.2 (avant : 1100) — contrôleur communicant 600-750 € fourni-posé (SIEL 42) ; V1.0 : 650-750 €"
+Éclairage public - armoires connectées;Coût projet;OPEX transmission;Transmission réseau (mix LoRa/cellulaire);Toutes strates;€/armoire/an;15;
+Éclairage public - armoires connectées;Coût projet;Serveurs & hosting;Serveurs et hébergement;Toutes strates;€/armoire/an;0.5;1 serveur / 1500 armoires, hosting 1200€/an/serveur (≈0,66€ affiché, 0,5€ retenu)
+Éclairage public - armoires connectées;Coût projet;Logiciels;Logiciel SAAS / hypervision;Métropole;€/armoire/an;12;
+Éclairage public - armoires connectées;Coût projet;Logiciels;Logiciel SAAS / hypervision;>30k hab;€/armoire/an;15;
+Éclairage public - armoires connectées;Coût projet;Logiciels;Logiciel SAAS / hypervision;2-30k hab;€/armoire/an;20;
+Éclairage public - armoires connectées;Coût projet;Logiciels;Logiciel SAAS / hypervision;<2k hab;€/armoire/an;25;
+Éclairage public - armoires connectées;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé installé);Métropole;%/an du CAPEX cumulé;0.08;4% CAPEX armoire + 1 ETP/3000 armoires + 5% cybersécurité
+Éclairage public - armoires connectées;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé installé);>30k hab;%/an du CAPEX cumulé;0.1;
+Éclairage public - armoires connectées;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé installé);2-30k hab;%/an du CAPEX cumulé;0.11;
+Éclairage public - armoires connectées;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé installé);<2k hab;%/an du CAPEX cumulé;0.12;
+Éclairage public - armoires connectées;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 armoires, one shot);Métropole;€/nouvelle armoire;5;
+Éclairage public - armoires connectées;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 armoires, one shot);>30k hab;€/nouvelle armoire;5;
+Éclairage public - armoires connectées;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 armoires, one shot);2-30k hab;€/nouvelle armoire;8;
+Éclairage public - armoires connectées;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 armoires, one shot);<2k hab;€/nouvelle armoire;12;
+Éclairage public - armoires connectées;Structure territoriale;Référence nationale;Parc national de points lumineux (référence 2025);Toutes strates;PL;11500000;Sert à convertir la consommation nationale (5,8 TWh) en consommation moyenne par PL pour le calcul des économies d'énergie à l'échelle commune
+Énergie des bâtiments;Structure territoriale;Parc de bâtiments;Nombre moyen de bâtiments publics < 500 m² par commune;Métropole;bâtiments/commune;28;Calage Tactis (AMORCE/ADEME-ACTEE)
+Énergie des bâtiments;Structure territoriale;Parc de bâtiments;Nombre moyen de bâtiments publics < 500 m² par commune;>30k hab;bâtiments/commune;20;
+Énergie des bâtiments;Structure territoriale;Parc de bâtiments;Nombre moyen de bâtiments publics < 500 m² par commune;2-30k hab;bâtiments/commune;5;
+Énergie des bâtiments;Structure territoriale;Parc de bâtiments;Nombre moyen de bâtiments publics < 500 m² par commune;<2k hab;bâtiments/commune;0.9;
+Énergie des bâtiments;Structure territoriale;Parc de bâtiments;Nombre moyen de bâtiments publics > 500 m² par commune;Métropole;bâtiments/commune;8;
+Énergie des bâtiments;Structure territoriale;Parc de bâtiments;Nombre moyen de bâtiments publics > 500 m² par commune;>30k hab;bâtiments/commune;5;
+Énergie des bâtiments;Structure territoriale;Parc de bâtiments;Nombre moyen de bâtiments publics > 500 m² par commune;2-30k hab;bâtiments/commune;1;
+Énergie des bâtiments;Structure territoriale;Parc de bâtiments;Nombre moyen de bâtiments publics > 500 m² par commune;<2k hab;bâtiments/commune;0.3;
+Énergie des bâtiments;Structure territoriale;Surface moyenne;Surface moyenne d'un petit bâtiment (<500m²);Toutes strates;m²;400;
+Énergie des bâtiments;Structure territoriale;Surface moyenne;Surface moyenne d'un grand bâtiment (>500m²);Toutes strates;m²;3000;
+Énergie des bâtiments;Marché;Parc;Croissance du parc de bâtiments (surface);Toutes strates;%/an;0.002;Aligné sur la croissance de la population française
+Énergie des bâtiments;Marché;Parc;Taux de pénétration IoT (petits bâtiments, base 2025);Métropole;%;0.2;
+Énergie des bâtiments;Marché;Parc;Taux de pénétration IoT (petits bâtiments, base 2025);>30k hab;%;0.15;
+Énergie des bâtiments;Marché;Parc;Taux de pénétration IoT (petits bâtiments, base 2025);2-30k hab;%;0.1;
+Énergie des bâtiments;Marché;Parc;Taux de pénétration IoT (petits bâtiments, base 2025);<2k hab;%;0.05;
+Énergie des bâtiments;Marché;Parc;Croissance annuelle du taux de pénétration IoT (petits);Toutes strates;%/an;0.1;
+Énergie des bâtiments;Marché;Parc;Taux de pénétration GTB (grands bâtiments, base 2025);Métropole;%;0.35;
+Énergie des bâtiments;Marché;Parc;Taux de pénétration GTB (grands bâtiments, base 2025);>30k hab;%;0.3;
+Énergie des bâtiments;Marché;Parc;Taux de pénétration GTB (grands bâtiments, base 2025);2-30k hab;%;0.2;
+Énergie des bâtiments;Marché;Parc;Taux de pénétration GTB (grands bâtiments, base 2025);<2k hab;%;0.1;
+Énergie des bâtiments;Marché;Parc;Croissance annuelle du taux de pénétration GTB (grands);Toutes strates;%/an;0.1;
+Énergie des bâtiments;Économique;Dépense énergie;Dépense énergétique des petits bâtiments;Toutes strates;€/m²/an;15;AMORCE / OPERAT
+Énergie des bâtiments;Économique;Dépense énergie;Dépense énergétique des grands bâtiments;Toutes strates;€/m²/an;18;
+Énergie des bâtiments;Économique;Dépense énergie;Croissance annuelle du prix de l'énergie;Toutes strates;%/an;0.02;
+Énergie des bâtiments;Économique;Économie énergie;Économie via monitoring IoT (petits bâtiments);Toutes strates;%/an;0.1;"MàJ V1.2 (avant : 0.08) — 10 % retenu en V1.2 (fourchette 5-10 % ; V0.9 : 8 %)"
+Énergie des bâtiments;Économique;Économie énergie;Économie via GTB exploitée (grands bâtiments);Toutes strates;%/an;0.15;
+Énergie des bâtiments;Économique;Économie déplacement;Économie déplacement technicien (petit bâtiment);Toutes strates;€/bâtiment/an;50;4 déplacements évités/an
+Énergie des bâtiments;Économique;Économie déplacement;Économie déplacement technicien (grand bâtiment);Toutes strates;€/bâtiment/an;150;
+Énergie des bâtiments;Coût projet;CAPEX objets connectés;CAPEX fourni-posé (petit bâtiment, 5 équipements);Toutes strates;€/bâtiment;650;130€/équipement × 5
+Énergie des bâtiments;Coût projet;CAPEX objets connectés;CAPEX fourni-posé (grand bâtiment, GTB);Toutes strates;€/bâtiment;15000;
+Énergie des bâtiments;Coût projet;OPEX transmission;Transmission réseau (petit et grand bâtiment);Toutes strates;€/bâtiment/an;3;
+Énergie des bâtiments;Coût projet;Serveurs & hosting;Serveurs et hébergement (petit bâtiment);Toutes strates;€/bâtiment/an;80;
+Énergie des bâtiments;Coût projet;Serveurs & hosting;Serveurs et hébergement (grand bâtiment);Toutes strates;€/bâtiment/an;120;
+Énergie des bâtiments;Coût projet;Logiciels;Plateforme EMS (petit bâtiment);Toutes strates;€/bâtiment/an;240;
+Énergie des bâtiments;Coût projet;Logiciels;Plateforme EMS (grand bâtiment);Toutes strates;€/bâtiment/an;900;
+Énergie des bâtiments;Coût projet;Exploitation & maintenance;Exploitation-maintenance (petit bâtiment, flat);Toutes strates;€/bâtiment/an;500;1 ETP 50 000€/an tous les 100 bâtiments — simplifié en flat, cf. notes
+Énergie des bâtiments;Coût projet;Exploitation & maintenance;Exploitation-maintenance (grand bâtiment, % du CAPEX cumulé);Métropole;%/an du CAPEX cumulé;0.08;
+Énergie des bâtiments;Coût projet;Exploitation & maintenance;Exploitation-maintenance (grand bâtiment, % du CAPEX cumulé);>30k hab;%/an du CAPEX cumulé;0.1;
+Énergie des bâtiments;Coût projet;Exploitation & maintenance;Exploitation-maintenance (grand bâtiment, % du CAPEX cumulé);2-30k hab;%/an du CAPEX cumulé;0.11;
+Énergie des bâtiments;Coût projet;Exploitation & maintenance;Exploitation-maintenance (grand bâtiment, % du CAPEX cumulé);<2k hab;%/an du CAPEX cumulé;0.12;
+Énergie des bâtiments;Coût projet;Conduite du changement;Conduite du changement (1 ETP 70 000€ / 100 bâtiments);Toutes strates;€/nouveau bâtiment;700;Petit et grand bâtiment
+Déchets - points d'apport volontaire;Structure territoriale;Desserte PAV;Part de la population desservie en PAV — collecte séparée;Toutes strates;%;0.3;1 PAV CS / 400 hab desservis
+Déchets - points d'apport volontaire;Structure territoriale;Desserte PAV;Part de la population desservie en PAV — verre;Toutes strates;%;0.75;1 colonne verre / 250 hab desservis
+Déchets - points d'apport volontaire;Structure territoriale;Desserte PAV;Part de la population desservie en PAV — OMR;Toutes strates;%;0.15;1 PAV OMR / 300 hab desservis
+Déchets - points d'apport volontaire;Structure territoriale;Desserte PAV;Habitants desservis par PAV — collecte séparée;Toutes strates;hab/PAV;400;
+Déchets - points d'apport volontaire;Structure territoriale;Desserte PAV;Habitants desservis par PAV — verre;Toutes strates;hab/PAV;250;
+Déchets - points d'apport volontaire;Structure territoriale;Desserte PAV;Habitants desservis par PAV — OMR;Toutes strates;hab/PAV;300;
+Déchets - points d'apport volontaire;Marché;Parc;Croissance du parc de PAV;Toutes strates;%/an;0.003;Alignée sur la croissance de la population française
+Déchets - points d'apport volontaire;Marché;Parc;Taux de PAV connectés (base 2025);Métropole;%;0.15;
+Déchets - points d'apport volontaire;Marché;Parc;Taux de PAV connectés (base 2025);>30k hab;%;0.12;
+Déchets - points d'apport volontaire;Marché;Parc;Taux de PAV connectés (base 2025);2-30k hab;%;0.08;
+Déchets - points d'apport volontaire;Marché;Parc;Taux de PAV connectés (base 2025);<2k hab;%;0.05;
+Déchets - points d'apport volontaire;Marché;Parc;Croissance annuelle du taux de PAV connectés;Toutes strates;%/an;0.1;
+Déchets - points d'apport volontaire;Économique;Économie déplacement;Économie déplacement éboueur (levées évitées);Métropole;€/PAV connecté/an;117;78 levées/an, 25% évitées, 6€/levée
+Déchets - points d'apport volontaire;Économique;Économie déplacement;Économie déplacement éboueur (levées évitées);>30k hab;€/PAV connecté/an;156;78 levées/an, 25% évitées, 8€/levée
+Déchets - points d'apport volontaire;Économique;Économie déplacement;Économie déplacement éboueur (levées évitées);2-30k hab;€/PAV connecté/an;195;52 levées/an, 25% évitées, 15€/levée
+Déchets - points d'apport volontaire;Économique;Économie déplacement;Économie déplacement éboueur (levées évitées);<2k hab;€/PAV connecté/an;247;52 levées/an, 25% évitées, 19€/levée
+Déchets - points d'apport volontaire;Économique;Économie déplacement;Économie déplacement tournée (relevage optimisé);Métropole;€/PAV connecté/an;25.6;700 km/camion/mois évités
+Déchets - points d'apport volontaire;Économique;Économie déplacement;Économie déplacement tournée (relevage optimisé);>30k hab;€/PAV connecté/an;38.4;1000 km/camion/mois
+Déchets - points d'apport volontaire;Économique;Économie déplacement;Économie déplacement tournée (relevage optimisé);2-30k hab;€/PAV connecté/an;57.6;1500 km/camion/mois
+Déchets - points d'apport volontaire;Économique;Économie déplacement;Économie déplacement tournée (relevage optimisé);<2k hab;€/PAV connecté/an;76.8;2000 km/camion/mois
+Déchets - points d'apport volontaire;Coût projet;CAPEX objets connectés;CAPEX sonde fournie-posée;Métropole;€/PAV;150;"MàJ V1.2 (avant : 70) — sonde radar/ultrasons ≈200 € HT (BH Environnement), ≈400 € en coût complet (Lorient) ; V1.0 : 150-260 € posée"
+Déchets - points d'apport volontaire;Coût projet;CAPEX objets connectés;CAPEX sonde fournie-posée;>30k hab;€/PAV;180;"MàJ V1.2 (avant : 90) — sonde radar/ultrasons ≈200 € HT (BH Environnement), ≈400 € en coût complet (Lorient) ; V1.0 : 150-260 € posée"
+Déchets - points d'apport volontaire;Coût projet;CAPEX objets connectés;CAPEX sonde fournie-posée;2-30k hab;€/PAV;220;"MàJ V1.2 (avant : 130) — sonde radar/ultrasons ≈200 € HT (BH Environnement), ≈400 € en coût complet (Lorient) ; V1.0 : 150-260 € posée"
+Déchets - points d'apport volontaire;Coût projet;CAPEX objets connectés;CAPEX sonde fournie-posée;<2k hab;€/PAV;260;"MàJ V1.2 (avant : 200) — sonde radar/ultrasons ≈200 € HT (BH Environnement), ≈400 € en coût complet (Lorient) ; V1.0 : 150-260 € posée"
+Déchets - points d'apport volontaire;Coût projet;OPEX transmission;Transmission réseau;Métropole;€/PAV/an;2;
+Déchets - points d'apport volontaire;Coût projet;OPEX transmission;Transmission réseau;>30k hab;€/PAV/an;2.5;
+Déchets - points d'apport volontaire;Coût projet;OPEX transmission;Transmission réseau;2-30k hab;€/PAV/an;3.5;
+Déchets - points d'apport volontaire;Coût projet;OPEX transmission;Transmission réseau;<2k hab;€/PAV/an;4.5;
+Déchets - points d'apport volontaire;Coût projet;Serveurs & hosting;Serveurs et hébergement;Toutes strates;€/PAV/an;0.08;
+Déchets - points d'apport volontaire;Coût projet;Logiciels;Logiciel SAAS exploitation données;Métropole;€/PAV/an;25;"MàJ V1.2 (avant : 10) — abonnement fabricant 2-4,50 €/capteur/mois + plateforme d'optimisation ; V1.0 : 25-40 €/sonde/an"
+Déchets - points d'apport volontaire;Coût projet;Logiciels;Logiciel SAAS exploitation données;>30k hab;€/PAV/an;30;"MàJ V1.2 (avant : 13) — abonnement fabricant 2-4,50 €/capteur/mois + plateforme d'optimisation ; V1.0 : 25-40 €/sonde/an"
+Déchets - points d'apport volontaire;Coût projet;Logiciels;Logiciel SAAS exploitation données;2-30k hab;€/PAV/an;35;"MàJ V1.2 (avant : 18) — abonnement fabricant 2-4,50 €/capteur/mois + plateforme d'optimisation ; V1.0 : 25-40 €/sonde/an"
+Déchets - points d'apport volontaire;Coût projet;Logiciels;Logiciel SAAS exploitation données;<2k hab;€/PAV/an;40;"MàJ V1.2 (avant : 25) — abonnement fabricant 2-4,50 €/capteur/mois + plateforme d'optimisation ; V1.0 : 25-40 €/sonde/an"
+Déchets - points d'apport volontaire;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);Métropole;%/an du CAPEX cumulé;0.12;MàJ V1.2 (avant : 0.08) — 12-16 % du CAPEX cumulé : maintenance, piles + renouvellement des sondes (durée de vie 5-8 ans)
+Déchets - points d'apport volontaire;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);>30k hab;%/an du CAPEX cumulé;0.14;MàJ V1.2 (avant : 0.1) — 12-16 % du CAPEX cumulé : maintenance, piles + renouvellement des sondes (durée de vie 5-8 ans)
+Déchets - points d'apport volontaire;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);2-30k hab;%/an du CAPEX cumulé;0.15;MàJ V1.2 (avant : 0.11) — 12-16 % du CAPEX cumulé : maintenance, piles + renouvellement des sondes (durée de vie 5-8 ans)
+Déchets - points d'apport volontaire;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);<2k hab;%/an du CAPEX cumulé;0.16;MàJ V1.2 (avant : 0.12) — 12-16 % du CAPEX cumulé : maintenance, piles + renouvellement des sondes (durée de vie 5-8 ans)
+Déchets - points d'apport volontaire;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 sondes);Métropole;€/nouveau PAV;5;
+Déchets - points d'apport volontaire;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 sondes);>30k hab;€/nouveau PAV;5;
+Déchets - points d'apport volontaire;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 sondes);2-30k hab;€/nouveau PAV;8;
+Déchets - points d'apport volontaire;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 sondes);<2k hab;€/nouveau PAV;12;
+Déchets - bacs individuels;Structure territoriale;Parc de bacs;Part des ménages en habitat collectif;Métropole;%;0.7;
+Déchets - bacs individuels;Structure territoriale;Parc de bacs;Part des ménages en habitat collectif;>30k hab;%;0.55;
+Déchets - bacs individuels;Structure territoriale;Parc de bacs;Part des ménages en habitat collectif;2-30k hab;%;0.3;
+Déchets - bacs individuels;Structure territoriale;Parc de bacs;Part des ménages en habitat collectif;<2k hab;%;0.1;
+Déchets - bacs individuels;Structure territoriale;Parc de bacs;Mutualisation des bacs en habitat collectif;Toutes strates;ménages/bac;15;1 bac pour 15 ménages en habitat collectif
+Déchets - bacs individuels;Structure territoriale;Parc de bacs;Nombre de flux de déchets équipés de bacs;Toutes strates;flux;3;Collecte séparée, verre, OMR
+Déchets - bacs individuels;Marché;Parc;Croissance du parc de ménages;Toutes strates;%/an;0.003;
+Déchets - bacs individuels;Marché;Parc;Taux de bacs connectés / pucés (base 2025);Métropole;%;0.12;
+Déchets - bacs individuels;Marché;Parc;Taux de bacs connectés / pucés (base 2025);>30k hab;%;0.15;
+Déchets - bacs individuels;Marché;Parc;Taux de bacs connectés / pucés (base 2025);2-30k hab;%;0.2;
+Déchets - bacs individuels;Marché;Parc;Taux de bacs connectés / pucés (base 2025);<2k hab;%;0.28;
+Déchets - bacs individuels;Marché;Parc;Croissance annuelle du taux de bacs connectés;Toutes strates;%/an;0.09;
+Déchets - bacs individuels;Économique;Économie tarification incitative;Économie nette de la tarification incitative (TI);Métropole;€/bac/an;25;
+Déchets - bacs individuels;Économique;Économie tarification incitative;Économie nette de la tarification incitative (TI);>30k hab;€/bac/an;30;
+Déchets - bacs individuels;Économique;Économie tarification incitative;Économie nette de la tarification incitative (TI);2-30k hab;€/bac/an;35;
+Déchets - bacs individuels;Économique;Économie tarification incitative;Économie nette de la tarification incitative (TI);<2k hab;€/bac/an;40;
+Déchets - bacs individuels;Économique;Économie déplacement;Économie déplacement (km évités, harmonisé avec PAV);Métropole;€/bac/an;3;
+Déchets - bacs individuels;Économique;Économie déplacement;Économie déplacement (km évités, harmonisé avec PAV);>30k hab;€/bac/an;4;
+Déchets - bacs individuels;Économique;Économie déplacement;Économie déplacement (km évités, harmonisé avec PAV);2-30k hab;€/bac/an;5;
+Déchets - bacs individuels;Économique;Économie déplacement;Économie déplacement (km évités, harmonisé avec PAV);<2k hab;€/bac/an;6;
+Déchets - bacs individuels;Économique;Économie déplacement;Part des collectivités refondant leur schéma de collecte (gain km conditionné);Toutes strates;%;0.5;"NOUVEAU V1.2 (Bacs ligne 57) : le gain kilométrique n'apparaît que si le schéma de collecte est refondu (Pays de Fayence : km ÷2, tournées supprimées) ; nul lorsque les tournées restent complètes (Mauges Communauté). Économie de déplacement × 50 %."
+Déchets - bacs individuels;Coût projet;CAPEX objets connectés;CAPEX puce d'identification (RFID);Toutes strates;€/bac;10;
+Déchets - bacs individuels;Coût projet;OPEX transmission;Transmission (RFID, sans coût réseau);Toutes strates;€/bac/an;0;
+Déchets - bacs individuels;Coût projet;Serveurs & hosting;Serveurs et hébergement;Toutes strates;€/bac/an;0.08;
+Déchets - bacs individuels;Coût projet;Logiciels;Logiciel SAAS exploitation données;Toutes strates;€/bac/an;3;
+Déchets - bacs individuels;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);Métropole;%/an du CAPEX cumulé;0.08;
+Déchets - bacs individuels;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);>30k hab;%/an du CAPEX cumulé;0.1;
+Déchets - bacs individuels;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);2-30k hab;%/an du CAPEX cumulé;0.11;
+Déchets - bacs individuels;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);<2k hab;%/an du CAPEX cumulé;0.12;
+Déchets - bacs individuels;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 bacs);Toutes strates;€/nouveau bac;20;MàJ V1.2 (avant : 15) — ≈20 €/bac one shot : enquête de dotation, communication, réclamations (ADEME TI, AMORCE)
+Arrosage connecté;Structure territoriale;Espaces verts;Surface d'espaces verts par habitant;Métropole;m²/hab;25;
+Arrosage connecté;Structure territoriale;Espaces verts;Surface d'espaces verts par habitant;>30k hab;m²/hab;45;
+Arrosage connecté;Structure territoriale;Espaces verts;Surface d'espaces verts par habitant;2-30k hab;m²/hab;90;
+Arrosage connecté;Structure territoriale;Espaces verts;Surface d'espaces verts par habitant;<2k hab;m²/hab;200;
+Arrosage connecté;Structure territoriale;Espaces verts;Part des espaces verts arrosés;Métropole;%;0.3;
+Arrosage connecté;Structure territoriale;Espaces verts;Part des espaces verts arrosés;>30k hab;%;0.25;
+Arrosage connecté;Structure territoriale;Espaces verts;Part des espaces verts arrosés;2-30k hab;%;0.1;
+Arrosage connecté;Structure territoriale;Espaces verts;Part des espaces verts arrosés;<2k hab;%;0.03;
+Arrosage connecté;Structure territoriale;Vannes;Nombre de vannes d'arrosage par hectare arrosé;Métropole;vannes/ha;10;
+Arrosage connecté;Structure territoriale;Vannes;Nombre de vannes d'arrosage par hectare arrosé;>30k hab;vannes/ha;7;
+Arrosage connecté;Structure territoriale;Vannes;Nombre de vannes d'arrosage par hectare arrosé;2-30k hab;vannes/ha;5;
+Arrosage connecté;Structure territoriale;Vannes;Nombre de vannes d'arrosage par hectare arrosé;<2k hab;vannes/ha;3;
+Arrosage connecté;Structure territoriale;Volume d'eau;Volume d'eau d'arrosage par m² d'espace vert arrosé;Métropole;m³/m²/an;0.2708;Dérivé : 87 Mm³ nationaux répartis par strate (46,0/28,9/17,7/7,4%) rapportés à la surface arrosée estimée (population France ≈68M) — donnée reconstruite, à valider
+Arrosage connecté;Structure territoriale;Volume d'eau;Volume d'eau d'arrosage par m² d'espace vert arrosé;>30k hab;m³/m²/an;0.2437;idem
+Arrosage connecté;Structure territoriale;Volume d'eau;Volume d'eau d'arrosage par m² d'espace vert arrosé;2-30k hab;m³/m²/an;0.1353;idem
+Arrosage connecté;Structure territoriale;Volume d'eau;Volume d'eau d'arrosage par m² d'espace vert arrosé;<2k hab;m³/m²/an;0.0406;idem
+Arrosage connecté;Marché;Parc;Croissance du nombre de vannes par hectare;Métropole;%/an;0.04;
+Arrosage connecté;Marché;Parc;Croissance du nombre de vannes par hectare;>30k hab;%/an;0.03;
+Arrosage connecté;Marché;Parc;Croissance du nombre de vannes par hectare;2-30k hab;%/an;0.02;
+Arrosage connecté;Marché;Parc;Croissance du nombre de vannes par hectare;<2k hab;%/an;0.01;
+Arrosage connecté;Marché;Parc;Taux de vannes connectées (base 2025);Métropole;%;0.3;
+Arrosage connecté;Marché;Parc;Taux de vannes connectées (base 2025);>30k hab;%;0.25;
+Arrosage connecté;Marché;Parc;Taux de vannes connectées (base 2025);2-30k hab;%;0.2;
+Arrosage connecté;Marché;Parc;Taux de vannes connectées (base 2025);<2k hab;%;0.1;
+Arrosage connecté;Marché;Parc;Croissance annuelle du taux de vannes connectées;Métropole;%/an;0.1;
+Arrosage connecté;Marché;Parc;Croissance annuelle du taux de vannes connectées;>30k hab;%/an;0.1;
+Arrosage connecté;Marché;Parc;Croissance annuelle du taux de vannes connectées;2-30k hab;%/an;0.15;
+Arrosage connecté;Marché;Parc;Croissance annuelle du taux de vannes connectées;<2k hab;%/an;0.15;
+Arrosage connecté;Économique;Économie eau;Économie d'eau attribuable au numérique;Toutes strates;%/an;0.04167547137285199;"35% à terme, ~3,5%/an | MàJ V1.2 (avant : 0.03526) — 40 % à terme (V1.2) soit ≈4,2 %/an composé ; V0.9 : 35 %"
+Arrosage connecté;Économique;Économie eau;Valorisation de l'eau économisée;Toutes strates;€/m³;4.52;Cohérent avec le cas d'usage Eau
+Arrosage connecté;Économique;Économie déplacement;Économie déplacement jardinier (temps technicien);Métropole;€/vanne/an;20;"MàJ V1.2 (avant : 37.5) — ≈32 % des déplacements de réglage réellement évités (Martigues : ≈¼ ETP pour 650 programmateurs) ; V0.9 : 60 %"
+Arrosage connecté;Économique;Économie déplacement;Économie déplacement jardinier (temps technicien);>30k hab;€/vanne/an;30;"MàJ V1.2 (avant : 56.25) — ≈32 % des déplacements de réglage réellement évités (Martigues : ≈¼ ETP pour 650 programmateurs) ; V0.9 : 60 %"
+Arrosage connecté;Économique;Économie déplacement;Économie déplacement jardinier (temps technicien);2-30k hab;€/vanne/an;36;"MàJ V1.2 (avant : 67.5) — ≈32 % des déplacements de réglage réellement évités (Martigues : ≈¼ ETP pour 650 programmateurs) ; V0.9 : 60 %"
+Arrosage connecté;Économique;Économie déplacement;Économie déplacement jardinier (temps technicien);<2k hab;€/vanne/an;48;"MàJ V1.2 (avant : 90) — ≈32 % des déplacements de réglage réellement évités (Martigues : ≈¼ ETP pour 650 programmateurs) ; V0.9 : 60 %"
+Arrosage connecté;Économique;Économie déplacement;Économie déplacement (carburant);Métropole;€/vanne/an;0.8;
+Arrosage connecté;Économique;Économie déplacement;Économie déplacement (carburant);>30k hab;€/vanne/an;0.96;
+Arrosage connecté;Économique;Économie déplacement;Économie déplacement (carburant);2-30k hab;€/vanne/an;2.88;
+Arrosage connecté;Économique;Économie déplacement;Économie déplacement (carburant);<2k hab;€/vanne/an;6.72;
+Arrosage connecté;Coût projet;CAPEX objets connectés;CAPEX vanne connectée fournie-posée;Métropole;€/vanne;500;MàJ V1.2 (avant : 300) — vanne connectée/programmateur 500-650 € fournie-posée (Martigues)
+Arrosage connecté;Coût projet;CAPEX objets connectés;CAPEX vanne connectée fournie-posée;>30k hab;€/vanne;550;MàJ V1.2 (avant : 400) — vanne connectée/programmateur 500-650 € fournie-posée (Martigues)
+Arrosage connecté;Coût projet;CAPEX objets connectés;CAPEX vanne connectée fournie-posée;2-30k hab;€/vanne;600;MàJ V1.2 (avant : 500) — vanne connectée/programmateur 500-650 € fournie-posée (Martigues)
+Arrosage connecté;Coût projet;CAPEX objets connectés;CAPEX vanne connectée fournie-posée;<2k hab;€/vanne;650;MàJ V1.2 (avant : 600) — vanne connectée/programmateur 500-650 € fournie-posée (Martigues)
+Arrosage connecté;Coût projet;OPEX transmission;Transmission réseau;Métropole;€/vanne/an;2;
+Arrosage connecté;Coût projet;OPEX transmission;Transmission réseau;>30k hab;€/vanne/an;2.5;
+Arrosage connecté;Coût projet;OPEX transmission;Transmission réseau;2-30k hab;€/vanne/an;3.5;
+Arrosage connecté;Coût projet;OPEX transmission;Transmission réseau;<2k hab;€/vanne/an;4.5;
+Arrosage connecté;Coût projet;Serveurs & hosting;Serveurs et hébergement;Toutes strates;€/vanne/an;1.2;
+Arrosage connecté;Coût projet;Logiciels;Logiciel SAAS exploitation données;Métropole;€/vanne/an;12;
+Arrosage connecté;Coût projet;Logiciels;Logiciel SAAS exploitation données;>30k hab;€/vanne/an;14;
+Arrosage connecté;Coût projet;Logiciels;Logiciel SAAS exploitation données;2-30k hab;€/vanne/an;16;
+Arrosage connecté;Coût projet;Logiciels;Logiciel SAAS exploitation données;<2k hab;€/vanne/an;20;
+Arrosage connecté;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);Métropole;%/an du CAPEX cumulé;0.08;
+Arrosage connecté;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);>30k hab;%/an du CAPEX cumulé;0.1;
+Arrosage connecté;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);2-30k hab;%/an du CAPEX cumulé;0.11;
+Arrosage connecté;Coût projet;Exploitation & maintenance;Exploitation-maintenance (% du CAPEX cumulé);<2k hab;%/an du CAPEX cumulé;0.12;
+Arrosage connecté;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 vannes);Métropole;€/nouvelle vanne;5;
+Arrosage connecté;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 vannes);>30k hab;€/nouvelle vanne;5;
+Arrosage connecté;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 vannes);2-30k hab;€/nouvelle vanne;8;
+Arrosage connecté;Coût projet;Conduite du changement;Conduite du changement (1 ETP 50 000€ / 10 000 vannes);<2k hab;€/nouvelle vanne;12;
+Eau - télérelève des compteurs;Empreinte environnementale;Fabrication;Énergie grise de fabrication;Toutes strates;kWh/nouveau compteur;2.5;Fiche PEP compteurs connectés — 8 à 10 MJ, soit 2,22 à 2,78 kWh (midpoint retenu)
+Eau - télérelève des compteurs;Empreinte environnementale;Fabrication;CO2 de fabrication;Toutes strates;kgCO2/nouveau compteur;8;Fiche PEP compteurs connectés
+Eau - télérelève des compteurs;Empreinte environnementale;Installation;Déplacement d'installation;Toutes strates;km/nouveau compteur;0.5;
+Eau - télérelève des compteurs;Empreinte environnementale;Usage;Consommation capteur + transmission + plateforme;Toutes strates;kWh/compteur connecté/an;0.313;0,073 (capteur, ~0,2Wh/j) + 0,12 (données 2G/3G/4G) + 0,12 (plateforme)
+Eau - télérelève des compteurs;Empreinte environnementale;Conversion;Mix électrique français;Toutes strates;kgCO2/kWh;0.079;Base Empreinte ADEME
+Eau - télérelève des compteurs;Empreinte environnementale;Conversion;Émission véhicule utilitaire léger;Toutes strates;kgCO2/km;0.2;
+Eau - télérelève des compteurs;Empreinte environnementale;Bénéfice physique;CO2 évité par traitement d'eau non consommée;Toutes strates;kgCO2/m³ économisé;0.06;Émissions liées au traitement de l'eau (Veolia BEGES)
+Eau - télérelève des compteurs;Empreinte environnementale;Bénéfice CO2 (déplacements évités);Kilomètres de relève évités par compteur connecté;Toutes strates;km/compteur connecté/an;0.5;"NOUVEAU V1.2 (Excel Eau, ligne 175 : relevés à distance, ≈0,5 km par compteur ; CO2 évité = km × 0,2 kgCO2e/km)"
+Eau - télérelève des compteurs;Empreinte environnementale;Fin de vie (recyclage);Énergie de recyclage des compteurs en fin de vie;Toutes strates;kWh/nouveau compteur;1.5;NOUVEAU V1.2 (Excel Eau, ligne 177)
+Eau - télérelève des compteurs;Empreinte environnementale;Fin de vie (recyclage);CO2 de recyclage des compteurs en fin de vie;Toutes strates;kgCO2/nouveau compteur;0.75;NOUVEAU V1.2 (Excel Eau, ligne 177)
+Eau - télérelève des compteurs;Empreinte environnementale;Maintenance corrective;Part de maintenance corrective rapportée aux km de relève évités;Toutes strates;ratio;0.2;NOUVEAU V1.2 (Excel Eau, ligne 176 : déplacements de techniciens = 20 % des km de relève évités)
+Éclairage public - armoires connectées;Empreinte environnementale;Fabrication;Énergie grise de fabrication;Toutes strates;kWh/nouvelle armoire;22.5;20-25 kWh, composants électroniques et métalliques
+Éclairage public - armoires connectées;Empreinte environnementale;Fabrication;CO2 de fabrication;Toutes strates;kgCO2/nouvelle armoire;11;10-12 kg CO2 par armoire
+Éclairage public - armoires connectées;Empreinte environnementale;Installation;Déplacement d'installation;Toutes strates;km/nouvelle armoire;4;
+Éclairage public - armoires connectées;Empreinte environnementale;Usage;Consommation armoire + plateforme;Toutes strates;kWh/armoire connectée/an;0.3733333333333333;0,0438 (transmission 0,3 Mo/j) + 0,333 (plateforme, 500kWh/1500 armoires) | MàJ V1.2 (avant : 0.377) — alignement Excel EP l.169-170 : 0,04 + 500/1500 kWh/armoire/an
+Éclairage public - armoires connectées;Empreinte environnementale;Conversion;Mix électrique français;Toutes strates;kgCO2/kWh;0.079;
+Éclairage public - armoires connectées;Empreinte environnementale;Conversion;Émission véhicule utilitaire léger;Toutes strates;kgCO2/km;0.2;
+Éclairage public - armoires connectées;Empreinte environnementale;Bénéfice CO2 (déplacements évités);Kilomètres de maintenance évités par armoire connectée;Toutes strates;km/armoire connectée/an;16;NOUVEAU V1.2 (Excel EP, ligne 175 : 4 fois 4 km évités de déplacement par armoire et par an)
+Éclairage public - armoires connectées;Empreinte environnementale;Fin de vie (recyclage);Énergie de recyclage des armoires en fin de vie;Toutes strates;kWh/nouvelle armoire;4;NOUVEAU V1.2 (Excel EP, ligne 176)
+Éclairage public - armoires connectées;Empreinte environnementale;Fin de vie (recyclage);CO2 de recyclage des armoires en fin de vie;Toutes strates;kgCO2/nouvelle armoire;5;NOUVEAU V1.2 (Excel EP, ligne 176 : 5 kg CO2 par armoire pour le démantèlement)
+Énergie des bâtiments;Empreinte environnementale;Fabrication;CO2 de fabrication (petit bâtiment);Toutes strates;kgCO2/nouveau petit bâtiment;680;Capteurs 250 + actionneurs 200 + régulateurs 100 kgCO2 (énergie grise non quantifiée)
+Énergie des bâtiments;Empreinte environnementale;Fabrication;CO2 de fabrication (grand bâtiment);Toutes strates;kgCO2/nouveau grand bâtiment;1360;Capteurs 450 + actionneurs 400 + régulateurs 250 kgCO2
+Énergie des bâtiments;Empreinte environnementale;Installation;Déplacement d'installation;Toutes strates;km/nouveau bâtiment;10;Petit et grand bâtiment
+Énergie des bâtiments;Empreinte environnementale;Usage;Consommation équipements (petit bâtiment);Toutes strates;kWh/bâtiment connecté/an;372;Capteurs 22 + actionneurs 175 + régulateurs 175 kWh/an
+Énergie des bâtiments;Empreinte environnementale;Usage;Consommation équipements (grand bâtiment);Toutes strates;kWh/bâtiment connecté/an;827;Capteurs 39 + actionneurs 350 + régulateurs 438 kWh/an
+Énergie des bâtiments;Empreinte environnementale;Conversion;Mix électrique français (consommation équipements);Toutes strates;kgCO2/kWh;0.079;
+Énergie des bâtiments;Empreinte environnementale;Conversion;Facteur d'émission usages pilotés (énergie économisée);Toutes strates;kgCO2/kWh;0.2;Dominante gaz/chauffage — l'énergie économisée par la GTB est majoritairement thermique, pas électrique
+Énergie des bâtiments;Empreinte environnementale;Conversion;Émission véhicule utilitaire léger;Toutes strates;kgCO2/km;0.2;
+Déchets - points d'apport volontaire;Empreinte environnementale;Fabrication;Énergie grise de fabrication;Toutes strates;kWh/nouvelle sonde;40;10 kWh capteur + 30 kWh modem
+Déchets - points d'apport volontaire;Empreinte environnementale;Fabrication;CO2 de fabrication;Toutes strates;kgCO2/nouvelle sonde;6.5;1,5 kg sonde + 5 kg modem
+Déchets - points d'apport volontaire;Empreinte environnementale;Installation;Déplacement d'installation;Toutes strates;km/nouvelle sonde;50;50 km A/R en moyenne
+Déchets - points d'apport volontaire;Empreinte environnementale;Usage;Consommation sonde + plateforme;Toutes strates;kWh/PAV connecté/an;0.1;0,05 (sonde LoRa sur pile) + 0,05 (plateforme, 1 serveur/10 000 objets)
+Déchets - points d'apport volontaire;Empreinte environnementale;Conversion;Mix électrique français;Toutes strates;kgCO2/kWh;0.079;
+Déchets - points d'apport volontaire;Empreinte environnementale;Conversion;Émission véhicule utilitaire léger;Toutes strates;kgCO2/km;0.2;
+Déchets - points d'apport volontaire;Empreinte environnementale;Bénéfice CO2 (carburant évité);Prix du gazole (conversion économie de carburant → litres);Toutes strates;€/l;2;NOUVEAU V1.2 (Excel onglet Déchets - PAV, ligne 183) : CO2 évité = économie de carburant ÷ 2 €/l × 3,1 kgCO2e/l
+Déchets - points d'apport volontaire;Empreinte environnementale;Bénéfice CO2 (carburant évité);Facteur d'émission du gazole, amont inclus (Base Carbone);Toutes strates;kgCO2e/l;3.1;NOUVEAU V1.2 (Excel onglet Déchets - PAV, ligne 183) : gazole, amont inclus — Base Carbone
+Déchets - points d'apport volontaire;Empreinte environnementale;Bénéfice CO2 (déplacements évités);Kilomètres de maintenance évités par sonde connectée;Toutes strates;km/sonde connectée/an;20;NOUVEAU V1.2 (Excel PAV, ligne 184 : ≈2 visites de maintenance évitées × 10 km)
+Déchets - points d'apport volontaire;Empreinte environnementale;Fin de vie (recyclage);Énergie de recyclage des sondes en fin de vie;Toutes strates;kWh/nouvelle sonde;8;NOUVEAU V1.2 (Excel PAV, ligne 185)
+Déchets - points d'apport volontaire;Empreinte environnementale;Fin de vie (recyclage);CO2 de recyclage des sondes en fin de vie;Toutes strates;kgCO2/nouvelle sonde;1.5;NOUVEAU V1.2 (Excel PAV, ligne 185)
+Déchets - bacs individuels;Empreinte environnementale;Fabrication;Énergie grise de fabrication;Toutes strates;kWh/nouveau bac;0.1;Puce RFID passive — ordre de grandeur très inférieur aux capteurs actifs
+Déchets - bacs individuels;Empreinte environnementale;Fabrication;CO2 de fabrication;Toutes strates;kgCO2/nouveau bac;0.025;≈25 g CO2e (puce + quote-part lecteur embarqué mutualisé)
+Déchets - bacs individuels;Empreinte environnementale;Bénéfice CO2 (carburant évité);Prix du gazole (conversion économie de carburant → litres);Toutes strates;€/l;2;NOUVEAU V1.2 (Excel onglet Déchets - Bacs individuels, ligne 188) : CO2 évité = économie de carburant ÷ 2 €/l × 3,1 kgCO2e/l
+Déchets - bacs individuels;Empreinte environnementale;Bénéfice CO2 (carburant évité);Facteur d'émission du gazole, amont inclus (Base Carbone);Toutes strates;kgCO2e/l;3.1;NOUVEAU V1.2 (Excel onglet Déchets - Bacs individuels, ligne 188) : gazole, amont inclus — Base Carbone
+Déchets - bacs individuels;Empreinte environnementale;Bénéfice CO2 (tonnages d'OMR évités);Nombre de bacs pucés par ménage (conversion bacs → ménages);Toutes strates;bacs/ménage;2;NOUVEAU V1.2 (Excel Bacs, ligne 187 : ≈2 bacs pucés/ménage)
+Déchets - bacs individuels;Empreinte environnementale;Bénéfice CO2 (tonnages d'OMR évités);Habitants par ménage;Toutes strates;hab/ménage;2.15;NOUVEAU V1.2 (Excel Bacs, ligne 187)
+Déchets - bacs individuels;Empreinte environnementale;Bénéfice CO2 (tonnages d'OMR évités);Production d'OMR par habitant;Toutes strates;t/hab/an;0.25;NOUVEAU V1.2 (Excel Bacs, ligne 187 : 250 kg OMR/hab/an)
+Déchets - bacs individuels;Empreinte environnementale;Bénéfice CO2 (tonnages d'OMR évités);Réduction des tonnages d'OMR par la tarification incitative;Toutes strates;%;0.35;NOUVEAU V1.2 (Excel Bacs, ligne 187 : −35 % (bilans ADEME TI))
+Déchets - bacs individuels;Empreinte environnementale;Bénéfice CO2 (tonnages d'OMR évités);CO2 évité par tonne d'OMR détournée (Base Carbone);Toutes strates;tCO2e/t;0.4;NOUVEAU V1.2 (Excel Bacs, ligne 187 : 0,40 tCO2e évitée par tonne d'OMR détournée)
+Déchets - bacs individuels;Empreinte environnementale;Installation;Déplacement de pose des puces;Toutes strates;km/nouveau bac;0.5;NOUVEAU V1.2 (Excel Bacs, ligne 184 : intégrée aux tournées de dotation, ≈0,5 km équivalent par bac)
+Déchets - bacs individuels;Empreinte environnementale;Usage;Consommation des serveurs (gestion TI);Toutes strates;kWh/bac connecté/an;0.05;"NOUVEAU V1.2 (Excel Bacs, ligne 186 : 1 serveur (500 kWh/an) / 10 000 bacs ; CO2 = énergie × mix)"
+Déchets - bacs individuels;Empreinte environnementale;Fin de vie (recyclage);Énergie de recyclage des puces en fin de vie;Toutes strates;kWh/nouveau bac;0.05;NOUVEAU V1.2 (Excel Bacs, ligne 189)
+Déchets - bacs individuels;Empreinte environnementale;Fin de vie (recyclage);CO2 de recyclage des puces en fin de vie;Toutes strates;kgCO2/nouveau bac;0.01;NOUVEAU V1.2 (Excel Bacs, ligne 189 : ≈10 gCO2e par bac (DEEE))
+Déchets - bacs individuels;Empreinte environnementale;Conversion;Mix électrique français;Toutes strates;kgCO2/kWh;0.079;NOUVEAU V1.2 (Excel Bacs, ligne 186)
+Déchets - bacs individuels;Empreinte environnementale;Conversion;Émission véhicule utilitaire léger;Toutes strates;kgCO2/km;0.2;NOUVEAU V1.2 (Excel Bacs, ligne 184)
+Arrosage connecté;Empreinte environnementale;Fabrication;Énergie grise de fabrication;Toutes strates;kWh/nouvelle vanne;15;Électrovanne motorisée + module LoRa, ou sonde capacitive
+Arrosage connecté;Empreinte environnementale;Fabrication;CO2 de fabrication;Toutes strates;kgCO2/nouvelle vanne;5;
+Arrosage connecté;Empreinte environnementale;Installation;Déplacement d'installation;Toutes strates;km/nouvelle vanne;2;
+Arrosage connecté;Empreinte environnementale;Usage;Consommation vanne + plateforme;Toutes strates;kWh/vanne connectée/an;0.1;0,05 (objet LoRa sur pile) + 0,05 (plateforme, 1 serveur/10 000 objets)
+Arrosage connecté;Empreinte environnementale;Conversion;Mix électrique français;Toutes strates;kgCO2/kWh;0.079;
+Arrosage connecté;Empreinte environnementale;Conversion;Émission véhicule utilitaire léger;Toutes strates;kgCO2/km;0.2;
+Arrosage connecté;Empreinte environnementale;Bénéfice physique;Énergie de pompage/traitement évitée par eau non prélevée;Toutes strates;kWh/m³ économisé;0.5;Production + distribution d'eau potable évitée (convention ADEME)
+Arrosage connecté;Empreinte environnementale;Bénéfice physique;CO2 évité par traitement d'eau non prélevée;Toutes strates;kgCO2/m³ économisé;0.06;Cohérent avec la convention de l'onglet Eau
+Arrosage connecté;Empreinte environnementale;Bénéfice CO2 (déplacements évités);Coût d'une journée de jardinier;Toutes strates;€/jour;300;NOUVEAU V1.2 (Excel Arrosage, ligne 190 : économie jardiniers ÷ 300 €/j × 20 km/j × 0,2 kgCO2e/km)
+Arrosage connecté;Empreinte environnementale;Bénéfice CO2 (déplacements évités);Distance parcourue par journée de jardinier évitée;Toutes strates;km/jour;20;NOUVEAU V1.2 (Excel Arrosage, ligne 190 : économie jardiniers ÷ 300 €/j × 20 km/j × 0,2 kgCO2e/km)
+Arrosage connecté;Empreinte environnementale;Sondes d'humidité;Densité de sondes d'humidité par hectare arrosé;Métropole;sonde/ha arrosé;1;"NOUVEAU V1.2 (Excel Arrosage, lignes 33-36 : ≈1 sonde par hectare (Martigues) ; V1.0 : 1 / 1 / 0,7 / 0,5)"
+Arrosage connecté;Empreinte environnementale;Sondes d'humidité;Densité de sondes d'humidité par hectare arrosé;>30k hab;sonde/ha arrosé;1;"NOUVEAU V1.2 (Excel Arrosage, lignes 33-36 : ≈1 sonde par hectare (Martigues) ; V1.0 : 1 / 1 / 0,7 / 0,5)"
+Arrosage connecté;Empreinte environnementale;Sondes d'humidité;Densité de sondes d'humidité par hectare arrosé;2-30k hab;sonde/ha arrosé;0.7;"NOUVEAU V1.2 (Excel Arrosage, lignes 33-36 : ≈1 sonde par hectare (Martigues) ; V1.0 : 1 / 1 / 0,7 / 0,5)"
+Arrosage connecté;Empreinte environnementale;Sondes d'humidité;Densité de sondes d'humidité par hectare arrosé;<2k hab;sonde/ha arrosé;0.5;"NOUVEAU V1.2 (Excel Arrosage, lignes 33-36 : ≈1 sonde par hectare (Martigues) ; V1.0 : 1 / 1 / 0,7 / 0,5)"
+Arrosage connecté;Empreinte environnementale;Sondes d'humidité;Croissance annuelle des surfaces arrosées;Métropole;%/an;0.01;NOUVEAU V1.2 (Excel Arrosage, lignes 13-16 : les sondes suivent la surface arrosée (densité × hectares))
+Arrosage connecté;Empreinte environnementale;Sondes d'humidité;Croissance annuelle des surfaces arrosées;>30k hab;%/an;0.01;NOUVEAU V1.2 (Excel Arrosage, lignes 13-16 : les sondes suivent la surface arrosée (densité × hectares))
+Arrosage connecté;Empreinte environnementale;Sondes d'humidité;Croissance annuelle des surfaces arrosées;2-30k hab;%/an;0.03;NOUVEAU V1.2 (Excel Arrosage, lignes 13-16 : les sondes suivent la surface arrosée (densité × hectares))
+Arrosage connecté;Empreinte environnementale;Sondes d'humidité;Croissance annuelle des surfaces arrosées;<2k hab;%/an;0.05;NOUVEAU V1.2 (Excel Arrosage, lignes 13-16 : les sondes suivent la surface arrosée (densité × hectares))
+Arrosage connecté;Empreinte environnementale;Fin de vie (recyclage);Énergie de recyclage des vannes et sondes en fin de vie;Toutes strates;kWh/nouvel objet;3;NOUVEAU V1.2 (Excel Arrosage, ligne 191 (vannes + sondes))
+Arrosage connecté;Empreinte environnementale;Fin de vie (recyclage);CO2 de recyclage des vannes et sondes en fin de vie;Toutes strates;kgCO2/nouvel objet;1;NOUVEAU V1.2 (Excel Arrosage, ligne 191 (vannes + sondes))
+Énergie des bâtiments;Empreinte environnementale;Usage;Intensité énergétique moyenne des bâtiments publics;Toutes strates;kWh/m²/an;240;Moyenne nationale, indépendante de la dépense en euros (qui inclut le prix, pas seulement le volume)
+Énergie des bâtiments;Empreinte environnementale;Bénéfice CO2 (déplacements évités);Kilomètres de maintenance évités par bâtiment connecté;Toutes strates;km/bâtiment connecté/an;40;NOUVEAU V1.2 (Excel Énergie des bâtiments, ligne 210 : 4 déplacements de techniciens de 10 km en moins sur l'année)
+Énergie des bâtiments;Empreinte environnementale;Fin de vie (recyclage);Énergie de recyclage (petit bâtiment);Toutes strates;kWh/nouveau petit bâtiment;255;"NOUVEAU V1.2 (Excel Énergie des bâtiments, ligne 211 ; CO2 = énergie × 0,079)"
+Énergie des bâtiments;Empreinte environnementale;Fin de vie (recyclage);Énergie de recyclage (grand bâtiment);Toutes strates;kWh/nouveau grand bâtiment;500;"NOUVEAU V1.2 (Excel Énergie des bâtiments, ligne 211 ; CO2 = énergie × 0,079)"
+Énergie des bâtiments;Empreinte environnementale;Usage;Consommation des serveurs (hébergement SaaS);Toutes strates;kWh/bâtiment connecté/an;50;"NOUVEAU V1.2 (Excel Énergie des bâtiments, ligne 207 ; CO2 = énergie × 0,079)"
+Surveillance inondation;Dommages;Dommages nationaux;Dommages annuels moyens d'inondation en France (2025);Toutes strates;€/an;1000000000;Excel V1.2 (version 4), onglet Prévention Inondation — G2 / PILOTAGE D74 : ≈1 Md€/an (CCR, bilans CatNat, France Assureurs)
+Surveillance inondation;Dommages;Dommages nationaux;Croissance annuelle des dommages;Toutes strates;%/an;0.025;Excel V1.2 (version 4), onglet Prévention Inondation — D2 : +2,5 %/an (la CCR projette ≈+50 % de sinistralité à 2050)
+Surveillance inondation;Dommages;Répartition par exposition;Part des dommages annuels du groupe de vigilance;Vigilance 3;%;0.627;"Excel V1.2 (version 4), onglet Prévention Inondation — D3 : groupe fortement exposé ; répartition indicative (EPRI/PGRI, TRI), parts statiques"
+Surveillance inondation;Dommages;Répartition par exposition;Part des dommages annuels du groupe de vigilance;Vigilance 2;%;0.155;Excel V1.2 (version 4), onglet Prévention Inondation — D4 : groupe moyennement exposé
+Surveillance inondation;Dommages;Répartition par exposition;Part des dommages annuels du groupe de vigilance;Vigilance 1;%;0.218;Excel V1.2 (version 4), onglet Prévention Inondation — D5 : groupe faiblement exposé
+Surveillance inondation;Dommages;Répartition par exposition;Base de répartition des dommages sur le territoire;Toutes strates;"0 = population nationale ; 1 = population du groupe";0;Excel V1.2 (version 4), onglet Prévention Inondation — SPÉCIFICATION UTILISATEUR : dommages du territoire = Σ (population du territoire au niveau de vigilance ÷ population NATIONALE) × dommages totaux du niveau (0). La valeur 1 divise par la population du groupe de vigilance : le total national de 1 Md€ est alors conservé
+Surveillance inondation;Bénéfices;Dommages évités;Part des dommages adressable par une surveillance locale;Toutes strates;%;0.5;Excel V1.2 (version 4), onglet Prévention Inondation — C10 : ≈50 % des dommages surviennent hors du réseau Vigicrues (petits bassins à crue rapide, ruissellement)
+Surveillance inondation;Bénéfices;Dommages évités;Taux d'évitement net des dommages (alerte locale);Toutes strates;%;0.1;Excel V1.2 (version 4), onglet Prévention Inondation — C11 : ≈35 % de dommages évitables × ≈30 % d'efficacité d'une alerte locale précoce
+Surveillance inondation;Bénéfices;Veille et astreinte;Économie de veille et d'astreinte;Toutes strates;€/territoire équipé/an;0;"Excel V1.2 (version 4), onglet Prévention Inondation — C17 : 0 (aucun poste supprimé constaté — MNCA, SMIAGE) ; V0.9 : 25 000"
+Surveillance inondation;Coûts;Investissement;CAPEX stations de mesure;Toutes strates;€/territoire;450000;"Excel V1.2 (version 4), onglet Prévention Inondation — C23-C25 : ≈25 stations limnimétriques + ≈15 pluviomètres connectés + intégration plateforme ; V0.9 : 300 000"
+Surveillance inondation;Coûts;Transmission;Nombre de points de mesure par territoire;Toutes strates;points;40;Excel V1.2 (version 4), onglet Prévention Inondation — C26 : ≈40 points de mesure
+Surveillance inondation;Coûts;Transmission;OPEX transmission par point de mesure;Toutes strates;€/point/an;400;Excel V1.2 (version 4), onglet Prévention Inondation — D26 : liaison redondée 4G/LTE-M + secours satellite
+Surveillance inondation;Coûts;Serveurs et hébergement;OPEX serveurs et hébergement;Toutes strates;€/territoire/an;2000;Excel V1.2 (version 4), onglet Prévention Inondation — C30 : convention serveur du classeur
+Surveillance inondation;Coûts;Logiciels;OPEX logiciels — service de prévision et d'alerte;Toutes strates;€/territoire/an;60000;"Excel V1.2 (version 4), onglet Prévention Inondation — C34 : service de prévision de crue et d'alerte (Predict, vorteX-io…) ; V0.9 : 30 000"
+Surveillance inondation;Coûts;Exploitation et maintenance;Exploitation et maintenance (% du CAPEX cumulé);Toutes strates;%;0.12;Excel V1.2 (version 4), onglet Prévention Inondation — C38 : capteurs exposés au milieu (embâcles, affouillement, vandalisme)
+Surveillance inondation;Coûts;Exploitation et maintenance;Exploitation et maintenance — forfait annuel (hydrométrie, jaugeages);Toutes strates;€/territoire/an;40000;"Excel V1.2 (version 4), onglet Prévention Inondation — D38 : ≈0,5-1 ETP d'hydrométrie ; V0.9 : 5 000"
+Surveillance inondation;Coûts;Conduite du changement;Évolution et conduite du changement (one-shot);Toutes strates;€/territoire;50000;Excel V1.2 (version 4), onglet Prévention Inondation — C42 : intégration au PCS/PICS, exercices de crise, FR-Alert
+Surveillance inondation;Empreinte environnementale;Fabrication;CO2 de fabrication (stations, pluviomètres, électronique);Toutes strates;kgCO2e/territoire;420;Excel V1.2 (version 4), onglet Prévention Inondation — ligne 104 : ≈420 kgCO2e par territoire équipé
+Surveillance inondation;Empreinte environnementale;Fabrication;Énergie grise de fabrication;Toutes strates;kWh/territoire;900;Excel V1.2 (version 4), onglet Prévention Inondation — ligne 105
+Surveillance inondation;Empreinte environnementale;Installation;CO2 d'installation (supports, génie civil léger, déplacements);Toutes strates;kgCO2e/territoire;1000;Excel V1.2 (version 4), onglet Prévention Inondation — ligne 106 : forfait ≈1 tCO2e par territoire
+Surveillance inondation;Empreinte environnementale;Usage;Consommation d'usage (télétransmission et plateforme);Toutes strates;kWh/territoire/an;625;Excel V1.2 (version 4), onglet Prévention Inondation — ligne 107 : ≈5 kWh/an × 25 stations + plateforme 500 kWh/an
+Surveillance inondation;Empreinte environnementale;Usage;Mix électrique français;Toutes strates;kgCO2/kWh;0.079;Excel V1.2 (version 4), onglet Prévention Inondation — ligne 108
+Surveillance inondation;Empreinte environnementale;Fin de vie (recyclage);CO2 de fin de vie (recyclage des dispositifs);Toutes strates;kgCO2e/territoire;50;Excel V1.2 (version 4), onglet Prévention Inondation — ligne 109 : ≈50 kgCO2e (DEEE), comptés l'année du déploiement
