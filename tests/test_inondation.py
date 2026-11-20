@@ -1,12 +1,17 @@
 """Tests du cas d'usage « Surveillance inondation » : réconciliation avec l'Excel V1.2 (version 4) et parité Python / JS.
-Usage : python3 test_inondation.py [chemin_excel.xlsx]   (nécessite openpyxl et node ; l'Excel est facultatif : sans lui, seule la parité est testée)"""
+Usage : python3 tests/test_inondation.py [chemin_excel.xlsx]   (nécessite pandas et node ; openpyxl si l'Excel est fourni ;
+l'Excel est facultatif : sans lui, seule la parité est testée)"""
 import json, subprocess, sys, os
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 import pandas as pd
 import moteur_calcul as m
 from moteur_calcul import Referentiel, run, CAS_INONDATION
 
-EXCEL = sys.argv[1] if len(sys.argv) > 1 else "/mnt/user-data/uploads/3e_OTCD_extrapolation_V1_2__4_.xlsx"
-ref = Referentiel("hypotheses_mon_territoire.csv", "communes-france-2026.csv")
+EXCEL = sys.argv[1] if len(sys.argv) > 1 else None
+ref = Referentiel(str(ROOT / "data" / "hypotheses_mon_territoire.csv"), str(ROOT / "data" / "communes-france-2026.csv"))
 p = m.get_parametres_inondation(ref)
 ok_global = True
 def check(nom, cond, detail=""):
@@ -16,7 +21,7 @@ def check(nom, cond, detail=""):
 def rel(a, b): return abs(a - b) / max(abs(b), 1e-12)
 
 # ------------------------------------------------------------------ 1) réconciliation avec l'Excel
-if os.path.exists(EXCEL):
+if EXCEL and os.path.exists(EXCEL):
     import openpyxl
     ws = openpyxl.load_workbook(EXCEL, data_only=True)["Prévention Inondation"]
     X = lambda c: float(ws[c].value or 0)
@@ -58,7 +63,7 @@ if os.path.exists(EXCEL):
     check("bilan net CO2 par territoire (Excel H110, tCO2e)", rel(ti["impact_co2_kg"] / 1000, X("H110") / n_new) < 1e-12, f"{ti['impact_co2_kg']:.1f} kgCO2e")
     check("bilan net énergie par territoire (Excel H111, kWh)", rel(ti["impact_energie_kwh"], X("H111") / n_new) < 1e-12, f"{ti['impact_energie_kwh']:.1f} kWh")
 else:
-    print("1) Réconciliation Excel ignorée (fichier introuvable) :", EXCEL)
+    print("1) Réconciliation Excel ignorée", f"(fichier introuvable : {EXCEL})" if EXCEL else "(aucun fichier Excel fourni en argument)")
 
 # ------------------------------------------------------------------ 1 bis) spécification : 50 % des dommages évités chaque année dès le déploiement
 print("1 bis) Dommages évités : 50 % de dommages adressables × 10 % d'évitement net = 5 % (règle de l'Excel)")
@@ -69,8 +74,8 @@ check("dommages évités = 5 % des dommages dès 2030, 0 avant", all(rel(r.domma
 # ------------------------------------------------------------------ 2) parité Python / JS
 print("2) Parité Python / JS (territoires et dates de déploiement variés)")
 js = r"""
-const e = require('./engine.js'); const fs = require('fs');
-const hyp = JSON.parse(fs.readFileSync('hypotheses.json','utf-8')); const raw = JSON.parse(fs.readFileSync('communes.json','utf-8'));
+const e = require('./src/engine.js'); const fs = require('fs');
+const hyp = JSON.parse(fs.readFileSync('data/hypotheses.json','utf-8')); const raw = JSON.parse(fs.readFileSync('data/communes.json','utf-8'));
 const toC = r => ({code_insee:r[0], nom_standard:r[1], dep_code:r[2], epci_code:r[4], population:r[6], vigilance:r[10]});
 const all = raw.map(toC); const nat = e.contexteNationalDepuisCommunes(all);
 const cas = JSON.parse(process.argv[1]); const out = {};
@@ -85,7 +90,7 @@ console.log(JSON.stringify(out));
 cas = [dict(cle="roanne-2030", type="commune", code="42187", annee=2030), dict(cle="yonne-2026", type="dep", code="89", annee=2026),
        dict(cle="rhone-2036", type="dep", code="69", annee=2036), dict(cle="paris-2028", type="commune", code="75056", annee=2028),
        dict(cle="rural-2031", type="commune", code="15081", annee=2031), dict(cle="epci-pays-basque-2029", type="epci", code="200067106", annee=2029)]
-res = json.loads(subprocess.run(["node", "-e", js, json.dumps(cas)], capture_output=True, text=True, check=True).stdout)
+res = json.loads(subprocess.run(["node", "-e", js, json.dumps(cas)], capture_output=True, text=True, check=True, cwd=ROOT).stdout)
 C = ref.communes
 for c in cas:
     if c["type"] == "commune": sel = C[C.code_insee.astype(str).str.zfill(5) == c["code"]]
@@ -120,8 +125,8 @@ for v in (None, 2025, 2037, 2030.5, "abc", True):
 # ------------------------------------------------------------------ 4) silo vs mutualisé : détail par cas d'usage
 print("4) Silo vs mutualisé : détail par cas d'usage (somme des cas = totaux ; parité Python / JS)")
 js_mut = r"""
-const e = require('./engine.js'); const fs = require('fs');
-const hyp = JSON.parse(fs.readFileSync('hypotheses.json','utf-8')); const raw = JSON.parse(fs.readFileSync('communes.json','utf-8'));
+const e = require('./src/engine.js'); const fs = require('fs');
+const hyp = JSON.parse(fs.readFileSync('data/hypotheses.json','utf-8')); const raw = JSON.parse(fs.readFileSync('data/communes.json','utf-8'));
 const toC = r => ({code_insee:r[0], nom_standard:r[1], dep_code:r[2], dep_nom:r[3], epci_code:r[4], epci_nom:r[5], population:r[6], nombre_menages:r[7], Strate:r[8], nombre_points_livraison:r[9], vigilance:r[10]});
 const out = {};
 for (const code of JSON.parse(process.argv[1])) {
@@ -133,7 +138,7 @@ for (const code of JSON.parse(process.argv[1])) {
 console.log(JSON.stringify(out));
 """
 codes = ["42187", "15081"]                                   # une grande commune (Roanne) et une petite commune rurale
-jm = json.loads(subprocess.run(["node", "-e", js_mut, json.dumps(codes)], capture_output=True, text=True, check=True).stdout)
+jm = json.loads(subprocess.run(["node", "-e", js_mut, json.dumps(codes)], capture_output=True, text=True, check=True, cwd=ROOT).stdout)
 cas_py = [m.calcul_eau_avec_options, m.calcul_ep_avec_options, m.calcul_dechets_pav_avec_options, m.calcul_dechets_bacs_avec_options]
 for code in codes:
     commune = ref.communes[ref.communes.code_insee.astype(str).str.zfill(5) == code].iloc[0]

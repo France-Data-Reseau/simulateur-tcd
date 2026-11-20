@@ -1,0 +1,16 @@
+{
+  "name": "simulateur-tcd",
+  "private": true,
+  "description": "Mon Territoire Connecté et Durable — simulateur territorial des cas d'usage connectés (FNCCR)",
+  "license": "MIT",
+  "scripts": {
+    "build": "python3 build.py",
+    "pretest": "npm run build",
+    "test": "npm run test:js && npm run test:py",
+    "test:js": "node tests/test_regression_v12.js",
+    "test:py": "python3 tests/test_interface.py && python3 tests/test_inondation.py"
+  },
+  "devDependencies": {
+    "jsdom": "^31.0.1"
+  }
+}

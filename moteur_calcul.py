@@ -1,11 +1,11 @@
 """
 Moteur de calcul "Mon territoire local" — cas d'usage Eau (télérelève) et Éclairage public.
 
-Entrées :
-  - hypotheses_mon_territoire.csv  : hypothèses unitaires par strate, pour 6 cas d'usage
+Entrées (dossier data/) :
+  - data/hypotheses_mon_territoire.csv  : hypothèses unitaires par strate, pour 6 cas d'usage
     (issues du modèle
     national 3e_OTCD_extrapolation_V0_8.xlsx, onglets PILOTAGE / Eau / EP)
-  - communes-france-2026.csv             : référentiel communes (population, ménages, strate)
+  - data/communes-france-2026.csv        : référentiel communes (population, ménages, strate)
 
 Sortie : trajectoire 2026-2035 (dépenses, externalités, solde) pour une commune donnée,
 cas d'usage Eau et/ou Éclairage public.
@@ -35,8 +35,11 @@ import json
 import re
 import sys
 from dataclasses import dataclass, field
+from pathlib import Path
 
 import pandas as pd
+
+DATA_DIR = Path(__file__).resolve().parent / "data"
 
 # ------------------------------------------------------------------------------------
 # Constantes générales
@@ -1915,8 +1918,8 @@ def main():
     parser.add_argument("--cas", nargs="+", choices=list(CAS_USAGE_REGISTRY), default=["eau", "ep"],
                          help="Cas d'usage à simuler (défaut : eau + ep). Choix : "
                               + ", ".join(CAS_USAGE_REGISTRY))
-    parser.add_argument("--hypotheses", default="hypotheses_mon_territoire.csv")
-    parser.add_argument("--communes", default="communes-france-2026.csv")
+    parser.add_argument("--hypotheses", default=str(DATA_DIR / "hypotheses_mon_territoire.csv"))
+    parser.add_argument("--communes", default=str(DATA_DIR / "communes-france-2026.csv"))
     parser.add_argument("--exclure-commune", nargs="+", default=None, metavar="NOM",
                          help="Nom(s) de commune(s) à exclure du périmètre EPCI/département (ex. --exclure-commune Auxerre)")
     parser.add_argument("--exclure-epci", nargs="+", default=None, metavar="NOM",
