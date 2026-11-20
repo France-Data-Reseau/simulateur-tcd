@@ -5,14 +5,48 @@ propres données de parc (nombre d'objets, nombre d'objets connectés, cible de
 connexion à 10 ans) pour chacun des 6 cas d'usage, plutôt que de dépendre
 uniquement de l'estimation automatique dérivée de la population.
 
-## Régénérer le HTML
+## Organisation du dépôt
+
+| Dossier / fichier | Contenu |
+|---|---|
+| `src/` | Sources de la page : `template.html` (gabarit HTML et CSS), `app.js` (interface), `engine.js` (moteur de calcul), `fonts/` (polices), `images/` (logos, icône d'onglet) |
+| `data/` | Hypothèses du modèle (`hypotheses_mon_territoire.csv` → `hypotheses.json`) et référentiel des communes (`communes-france-2026.csv` → `communes.json`) |
+| `public/` | **Page générée** (`index.html`) : c'est le seul dossier à publier. Ne pas la modifier à la main, elle est écrasée à chaque `build.py` |
+| `tests/` | Tests de non-régression (moteur, interface, surveillance inondation) |
+| `.github/workflows/pages.yml` | Construction, tests et déploiement sur GitHub Pages |
+| `build.py` | Assemble `src/` et `data/` en une page unique `public/index.html` |
+| `moteur_calcul.py` | Copie jumelle du moteur en Python, utilisable en ligne de commande |
+| `requirements.txt` / `package.json` | Dépendances Python et Node.js, nécessaires seulement pour le moteur en ligne de commande et les tests |
+
+## Régénérer la page
 
 ```bash
-python3 build.py
+python3 build.py      # ou : npm run build
 ```
 
-Produit `mon_territoire_donnees.html` — fichier autonome (~4,1 Mo, communes
-embarquées, aucune dépendance externe, fonctionne hors ligne).
+Produit `public/index.html` (anciennement `mon_territoire_donnees.html` à la racine) — fichier autonome (~4,8 Mo :
+communes, logos et polices embarqués, aucune ressource externe, fonctionne hors ligne). `build.py` n'utilise que la
+bibliothèque standard de Python (3.8+) : aucune installation n'est nécessaire pour régénérer la page.
+
+## Publication
+
+Le workflow [GitHub Actions](.github/workflows/pages.yml) régénère `public/index.html`, exécute les tests et
+publie uniquement le contenu de `public/` sur GitHub Pages. Il ne publie que si les tests réussissent :
+
+- chaque pull request vers `main` est construite et testée, sans déploiement ;
+- chaque push sur `main` déclenche la construction, les tests et la publication ;
+- un lancement manuel est possible depuis l'onglet **Actions**. Il ne publie que si la branche `main` est
+  sélectionnée ; sur une autre branche, il exécute uniquement la construction et les tests.
+
+Pour activer la publication, un administrateur du dépôt doit :
+
+1. Intégrer le workflow à la branche `main`.
+2. Dans **Settings > Pages > Build and deployment**, choisir **GitHub Actions** comme source.
+3. Si la première exécution a eu lieu avant l'activation de Pages, relancer le workflow depuis **Actions**,
+   en sélectionnant `main`.
+
+L'adresse du site apparaît dans **Settings > Pages** et dans le résultat du déploiement. Sans domaine personnalisé,
+elle devrait être `https://france-data-reseau.github.io/simulateur-tcd/`.
 
 ## Logique de saisie (par cas d'usage, par territoire)
 
@@ -44,10 +78,10 @@ sous-types (< 500 m² et > 500 m²) sont saisis et calculés indépendamment.
 
 ## Version des hypothèses : modèle Excel V1.2
 
-Les hypothèses (`hypotheses_mon_territoire.csv` → `hypotheses.json`) reprennent le
+Les hypothèses (`data/hypotheses_mon_territoire.csv` → `data/hypotheses.json`) reprennent le
 modèle national **3e_OTCD_extrapolation_V1_2** (mise à jour depuis V0_8). Chaque valeur
 modifiée porte dans la colonne `note_source` la mention « MàJ V1.2 (avant : X) » avec la
-justification issue de l'Excel — `grep "MàJ V1.2" hypotheses_mon_territoire.csv` liste
+justification issue de l'Excel — `grep "MàJ V1.2" data/hypotheses_mon_territoire.csv` liste
 les 39 valeurs changées.
 
 | Cas d'usage | Hypothèses mises à jour |
@@ -149,19 +183,21 @@ produite couvre **2027-2036** (10 ans), à la différence du précédent outil
 
 | Fichier | Contient |
 |---|---|
-| `template.html` | Texte statique : titre, sous-titre, intitulés des étapes, footer |
-| `app.js` | Texte dynamique : libellés des indicateurs marché, texte de mutualisation. `CAS_CONFIG` en tête de fichier définit le nom, la description, les libellés de saisie **et le pictogramme** de chaque cas d'usage |
-| `hypotheses_mon_territoire.csv` | Les valeurs numériques du modèle — éditable dans Excel |
-| `communes-france-2026.csv` | Le référentiel des communes |
-| `logo_fnccr.png` / `logo_banque_des_territoires.png` | Les deux logos affichés en en-tête. Le logo Banque des Territoires (rouge et brun, fond transparent) est posé sur un cartouche blanc, à côté du logo FNCCR, pour conserver ses couleurs d'origine sur le bandeau bleu. Pour les remplacer : même nom de fichier, puis `python3 build.py`. `logo_tactis.png` n'est plus affiché ni intégré (fichier conservé, inutilisé) ; les mentions textuelles « FNCCR × Tactis » de la note de bas de page et du pied du PDF subsistent (la phrase d'accroche du bandeau d'en-tête, qui en contenait une, a été retirée) |
+| `src/template.html` | Texte statique : titre, sous-titre, description de la page (balise `<meta name="description">`, affichée par les moteurs de recherche), intitulés des étapes, footer |
+| `src/app.js` | Texte dynamique : libellés des indicateurs marché, texte de mutualisation. `CAS_CONFIG` en tête de fichier définit le nom, la description, les libellés de saisie **et le pictogramme** de chaque cas d'usage |
+| `data/hypotheses_mon_territoire.csv` | Les valeurs numériques du modèle — éditable dans Excel |
+| `data/communes-france-2026.csv` | Le référentiel des communes |
+| `src/images/logo_fnccr.png` / `src/images/logo_banque_des_territoires.png` | Les deux logos affichés en en-tête. Le logo Banque des Territoires (rouge et brun, fond transparent) est posé sur un cartouche blanc, à côté du logo FNCCR, pour conserver ses couleurs d'origine sur le bandeau bleu. Pour les remplacer : même nom de fichier, puis `python3 build.py`. `logo_tactis.png` n'est plus affiché ni intégré (fichier conservé, inutilisé) ; les mentions textuelles « FNCCR × Tactis » de la note de bas de page et du pied du PDF subsistent (la phrase d'accroche du bandeau d'en-tête, qui en contenait une, a été retirée) |
+| `src/images/favicon.png` | L'icône d'onglet du navigateur (PNG 64 × 64 tiré du logo FNCCR), embarquée dans la page |
+| `src/fonts/` | Les polices (voir « Polices » ci-dessous) |
 
 ## Couleurs et pictogrammes par cas d'usage
 
 Palette FNCCR, une couleur par cas d'usage : Télérelève de l'eau et Pilotage de l'arrosage `#29ABA3`, Éclairage public `#DE9111`, Énergie des bâtiments `#248ED5`,
 Points d'apport volontaire et Bacs individuels `#556879`, Surveillance inondation `#EB7360`. Elle est appliquée à quatre endroits :
-les variables CSS `--cas-<cas>-600` (bordure de la carte cochée), `-700` (texte de la pastille, assombri pour garder un contraste d'au moins 4,5:1) et `-100` (fond clair) dans `template.html` ;
-`CAS_CONFIG[i].colorDark` (barres de dépenses des graphiques) et `colorLight` (barres de bénéfices, teinte éclaircie) dans `app.js` ; et les pictogrammes. Les variables `--eau-*` et
-`--lum-*`, elles, restent réservées à l'interface générale (focus des champs, liens, bouton PDF) et ne suivent pas la palette. `python3 test_interface.py` contrôle cette cohérence.
+les variables CSS `--cas-<cas>-600` (bordure de la carte cochée), `-700` (texte de la pastille, assombri pour garder un contraste d'au moins 4,5:1) et `-100` (fond clair) dans `src/template.html` ;
+`CAS_CONFIG[i].colorDark` (barres de dépenses des graphiques) et `colorLight` (barres de bénéfices, teinte éclaircie) dans `src/app.js` ; et les pictogrammes. Les variables `--eau-*` et
+`--lum-*`, elles, restent réservées à l'interface générale (focus des champs, liens, bouton PDF) et ne suivent pas la palette. `python3 tests/test_interface.py` contrôle cette cohérence.
 
 Chaque cas d'usage a son pictogramme (gouttes d'eau, lampadaire, immeubles,
 bacs de tri, poubelle, arrosoir, station de mesure et maison inondée), extrait du gabarit FNCCR fourni (sauf l'inondation, dessinée dans le même style) puis
@@ -170,14 +206,41 @@ Ils apparaissent sur les cartes de sélection, l'en-tête de chaque bloc de
 résultats et l'en-tête de chaque panneau de saisie manuelle.
 
 Les images sont encodées en base64 directement dans la constante `CAS_ICONS`
-en tête de `app.js` (pas de fichier séparé à gérer). Pour changer un
+en tête de `src/app.js` (pas de fichier séparé à gérer). Pour changer un
 pictogramme : remplacez l'image source, recolorez-la si besoin dans la teinte
 du cas d'usage concerné, ré-encodez-la (`base64 -w0 fichier.png`), et
 remplacez la valeur correspondante dans `CAS_ICONS`.
 
+## Polices : hébergées localement, sans Google Fonts
+
+L'interface utilise les polices **Inter** (texte) et **Space Grotesk** (titres et chiffres). Elles sont livrées avec le
+dépôt (`src/fonts/`) et intégrées en base64 dans la page par `build.py`, au lieu d'être chargées depuis Google Fonts
+comme auparavant. Pourquoi :
+
+- **Protection des données personnelles (RGPD)** : charger une police depuis `fonts.googleapis.com` transmet à Google
+  l'adresse IP de chaque visiteur, sans son consentement. Ce transfert a été jugé contraire au RGPD (tribunal régional de
+  Munich, 20 janvier 2022). Pour un outil public, mieux vaut ne transmettre aucune donnée de visite à un tiers.
+- **Fonctionnement hors ligne** : la page reste un fichier unique et autonome, qui s'affiche à l'identique une fois
+  téléchargée, sur un poste sans Internet ou derrière un pare-feu qui bloque les services Google.
+- **Performance et stabilité** : aucune connexion à des domaines tiers au chargement (ni requête DNS ni négociation TLS
+  supplémentaires ; les navigateurs ne partagent de toute façon plus leur cache de polices entre sites), et aucune
+  dépendance à la disponibilité ou aux évolutions d'un service externe.
+
+Détails techniques :
+
+- Les fichiers sont les **polices variables** servies par Google Fonts (toutes les graisses dans un seul fichier),
+  limitées au **sous-ensemble « latin »** (≈ 70 Ko au total), qui couvre tout le français (accents, œ, « », €, tirets…).
+  Les rares caractères hors de ce sous-ensemble (« ᵉ » de « 3ᵉ édition », « → », « ₂ » de CO₂) s'affichent avec la police
+  du système, comme c'était déjà le cas pour « → » et « ₂ ».
+- Les déclarations `@font-face` sont dans `src/fonts/fonts.css` ; `build.py` y remplace chaque fichier `.woff2` par son contenu en base64.
+- Licence des polices : SIL Open Font License 1.1 (`src/fonts/OFL-Inter.txt`, `src/fonts/OFL-SpaceGrotesk.txt`), qui en autorise la redistribution.
+- `python3 tests/test_interface.py` vérifie que la page publiée ne charge aucune ressource externe.
+
+Pour mettre à jour une police : remplacez le fichier `.woff2` (même nom) dans `src/fonts/`, puis relancez `python3 build.py`.
+
 ## Graphique annuel (dépenses vs bénéfices)
 
-Le graphique par cas d'usage (`renderYearChart` dans `app.js`) affiche une
+Le graphique par cas d'usage (`renderYearChart` dans `src/app.js`) affiche une
 étiquette de valeur par barre et par année — au format compact (« 296k€ »,
 « 1,2M€ ») pour rester lisible sur 10 barres. La fonction `fmtCompact()`
 juste au-dessus gère ce formatage si vous voulez changer le seuil M€/k€ ou
@@ -185,7 +248,7 @@ le nombre de décimales.
 
 ## Variables « risque inondation » et « vigilance » du référentiel des communes
 
-Trois colonnes ont été ajoutées à la fin de `communes-france-2026.csv` :
+Trois colonnes ont été ajoutées à la fin de `data/communes-france-2026.csv` :
 
 - **`risque inondation`** : **1** si la commune appartient à un EPCI dont **au moins une commune** est (au moins en partie) dans une zone à très haut
   risque d'inondation (territoires à risque important d'inondation, TRI), **0** sinon. **8 765 communes sur 34 868 (25,1 %) valent 1**
@@ -201,9 +264,11 @@ Trois colonnes ont été ajoutées à la fin de `communes-france-2026.csv` :
   Les 4 communes « sans EPCI » (code `ZZZZZZZZZ`) sont traitées isolément. « Fait partie d'un TRI » s'entend au niveau de la commune (`risque inondation commune` = 1).
   Départements « cœur » (44) : Arc méditerranéen (06, 11, 13, 2A, 2B, 30, 34, 66, 83), bassin de la Seine (10, 21, 27, 75, 76, 77, 78, 91, 92, 93, 94, 95),
   bassin de la Loire (03, 07, 18, 37, 41, 42, 43, 44, 45, 49, 58, 71), bassin du Rhône (01, 07, 13, 26, 30, 38, 42, 69, 73, 74, 84), bassin de la Garonne (31, 33, 47, 82).
-  Détail par département : `risque_inondation/vigilance_par_departement.csv`.
+  Détail par département : `risque_inondation/vigilance_par_departement.csv` (non inclus dans ce dépôt, voir ci-dessous).
 
-Elles ne sont pas encore utilisées par l'outil (le HTML embarqué est inchangé). Le dossier `risque_inondation/` contient le script de calcul
+La colonne `vigilance` est embarquée dans la page et utilisée par le cas d'usage « Surveillance inondation » (voir plus bas) ;
+les deux colonnes `risque inondation` ne sont pas utilisées par l'outil. Le dossier `risque_inondation/`, qui a servi à calculer
+ces colonnes, **n'est pas inclus dans ce dépôt**. Il contient le script de calcul
 (reproductible, chemins configurables en tête de fichier, relançable sur un CSV déjà complété), `risque_inondation_controle.csv` (les 5 359 communes
 qui touchent une zone, avec la part de leur surface concernée et la décision) et `risque_inondation_epci.csv` (les 328 EPCI concernés : nombre de communes,
 dont en zone, ajoutées par l'élargissement, population).
@@ -232,7 +297,7 @@ Hypothèses et formules : onglet **Prévention Inondation** de l'Excel V1.2 (ver
 donne la cellule d'origine de chacune). Contrairement aux six autres cas d'usage, il n'y a **aucun parc d'objets à saisir** : l'utilisateur choisit le territoire
 (commun à tous les cas d'usage) et indique la **date de déploiement** d'un système de surveillance (2026 à 2036, obligatoire).
 
-**Ce que calcule le modèle** (trajectoire 2027-2036, dans `engine.js` / `moteur_calcul.py` : `calculInondationAvecOptions` / `calcul_inondation_avec_options`) :
+**Ce que calcule le modèle** (trajectoire 2027-2036, dans `src/engine.js` / `moteur_calcul.py` : `calculInondationAvecOptions` / `calcul_inondation_avec_options`) :
 
 1. **Dommages du territoire** selon son profil de vigilance (colonne `vigilance` des communes, embarquée dans le HTML) :
    `Σ_niveau (population du territoire au niveau ÷ population nationale) × dommages nationaux du niveau`, avec dommages nationaux du niveau =
@@ -254,12 +319,14 @@ La population nationale (68 348 939 hab.) et sa répartition par vigilance sont 
 dommageable que le niveau 1, et ne restitue que ≈ 465 M€ sur la France entière (au lieu de 1 Md€). La valeur **1** divise par la population **du niveau** : le total national est conservé,
 mais le dommage par habitant devient pratiquement identique (≈ 15,4 €) pour les trois niveaux car, dans l'Excel, les parts de dommages (62,7 / 15,5 / 21,8 %) sont égales aux parts de population.
 
-Tests : `node test_regression_v12.js` (moteur et interface) et `python3 test_inondation.py [excel.xlsx]` (réconciliation avec l'Excel, parité Python/JS, validation de la date).
+Tests : `node tests/test_regression_v12.js` (moteur et interface) et `python3 tests/test_inondation.py [excel.xlsx]` (parité Python/JS, validation de la date et,
+si le chemin de l'Excel est passé en argument, réconciliation avec l'Excel).
 Les valeurs saisies dans l'étape 3 sont désormais conservées quand on coche ou décoche une carte.
 
 ## Interface : titre, vocabulaire, détail « Silo vs mutualisé »
 
-- **Titre** : « Mon Territoire Connecté et Durable » (titre de la page et en-tête, dans `template.html`). Le nom des fichiers (`mon_territoire_donnees.html`) n'a pas changé.
+- **Titre** : « Mon Territoire Connecté et Durable » (titre de la page et en-tête, dans `src/template.html`). La page générée s'appelle désormais `public/index.html`
+  (anciennement `mon_territoire_donnees.html`), pour être servie à la racine du site publié.
 - **Vocabulaire** : « EPCI » est remplacé par « intercommunalité » dans tous les textes affichés (recherche, bandeau du territoire, panneau d'exclusion, aide de l'étape 1).
   Les colonnes `epci_code` / `epci_nom` des CSV, les identifiants du code et la sortie texte du moteur Python ne changent pas.
 - **Bloc « Silo vs mutualisé »** : sous les deux montants, un tableau donne, **pour chaque cas d'usage**, les dépenses sur 10 ans en silo et en mutualisé, et **l'économie de mutualisation**
@@ -274,22 +341,22 @@ Les valeurs saisies dans l'étape 3 sont désormais conservées quand on coche o
 
 ## Fichiers non éditables (ou à modifier avec précaution)
 
-- `engine.js` : le moteur de calcul (formules, hypothèses, logique de saisie
+- `src/engine.js` : le moteur de calcul (formules, hypothèses, logique de saisie
   manuelle) pour les 6 cas d'usage. Une copie jumelle existe en Python
   (`moteur_calcul.py`) — toute modification d'une formule doit être répercutée
   dans les deux fichiers pour rester cohérent. Architecture : pour chaque cas
   d'usage, `getParametresXxx()` (hypothèses par strate), `calculXxxDepuisParc()`
   (trajectoire générique, commune aux deux modes), `calculXxx()` (mode auto),
   `calculXxxOverride()` (mode saisie), `calculXxxAvecOptions()` (aiguillage).
-- `hypotheses.json` / `communes.json` : générés automatiquement, ne pas éditer à la main.
+- `data/hypotheses.json` / `data/communes.json` : générés automatiquement, ne pas éditer à la main.
+- `public/index.html` : généré par `build.py`, ne pas éditer à la main.
 
 ## Moteur Python en ligne de commande
 
-```bash
-# Mode automatique (comme avant)
-python3 moteur_calcul.py "Roanne" --cas eau ep
+Nécessite `pandas` (`python3 -m pip install -r requirements.txt`). Le % cible 2036 étant obligatoire pour chaque cas
+d'usage (voir « Logique de saisie »), il se renseigne dans un fichier JSON passé avec `--donnees` :
 
-# Avec saisie manuelle (fichier JSON)
+```bash
 python3 moteur_calcul.py "Roanne" --cas eau energie --donnees donnees.json
 ```
 
@@ -297,21 +364,39 @@ où `donnees.json` ressemble à :
 ```json
 {
   "eau": {"nombre_objets": 45000, "nombre_objets_connectes": 10000, "pct_2036": 0.85},
-  "energie": {"petit": {"nombre_objets": 30, "pct_2036": 0.9}, "grand": null}
+  "energie": {"petit": {"nombre_objets": 30, "pct_2036": 0.9}, "grand": {"pct_2036": 0.8}}
 }
 ```
-Un cas d'usage omis, ou valeur `null`, retombe sur le calcul automatique.
+Chaque cas d'usage demandé avec `--cas` doit y figurer avec son `pct_2036` (pour l'Énergie des bâtiments : les deux
+sous-types `petit` et `grand`), sinon le calcul s'arrête avec un message d'erreur. `nombre_objets` et
+`nombre_objets_connectes` sont facultatifs : sans eux, le parc est dérivé de la population.
 
+Les fichiers d'entrée sont lus par défaut dans `data/` (options `--hypotheses` et `--communes` pour en utiliser d'autres).
 Les options `--echelle`, `--exclure-commune`, `--exclure-epci` et `--export-csv`
 fonctionnent comme dans l'outil précédent (voir leur `--help`).
 
 ## Vérifier que rien n'est cassé après une modification
 
-Une suite de tests automatisée est fournie : `npm install jsdom && node test_regression_v12.js`
-(vérifie hypothèses V1.2, 6 cas d'usage, %2036 obligatoire, exclusions, pictogrammes, graphiques…), `python3 test_interface.py` (palette, contraste, pictogrammes)
-et `python3 test_inondation.py` (surveillance inondation, mutualisation par cas d'usage).
+Installez une fois les dépendances des tests (Node.js en version LTS récente, 22 ou 24, et Python 3) :
 
-Ouvrez `mon_territoire_donnees.html` dans un navigateur — les communes sont
-déjà chargées. Choisissez une commune test, laissez les champs de saisie
-vides, lancez un calcul (doit correspondre à l'ancien comportement), puis
-testez avec une valeur saisie pour vérifier l'interpolation vers 2036.
+```bash
+npm install                                  # jsdom
+python3 -m pip install -r requirements.txt   # pandas, Pillow, openpyxl
+```
+
+Puis lancez `npm test` : la commande régénère `public/index.html` puis exécute les trois suites (chacune peut aussi
+être lancée seule, depuis la racine du dépôt) :
+
+- `node tests/test_regression_v12.js` : hypothèses V1.2, 6 cas d'usage, %2036 obligatoire, exclusions, pictogrammes, graphiques… (sur la page générée) ;
+- `python3 tests/test_interface.py` : palette, contraste, pictogrammes, page publiée sans ressource externe ;
+- `python3 tests/test_inondation.py [excel.xlsx]` : surveillance inondation, mutualisation par cas d'usage.
+
+Ouvrez ensuite `public/index.html` dans un navigateur — les communes sont
+déjà chargées. Choisissez une commune test, cochez un cas d'usage et renseignez
+seulement le % cible 2036 pour lancer un calcul, puis testez avec un nombre
+d'objets saisi pour vérifier l'interpolation vers 2036.
+
+## Licence
+
+Le code est distribué sous licence MIT (voir [LICENSE](LICENSE)), © 2026 FNCCR. Les polices Inter et Space Grotesk
+(`src/fonts/`) restent sous leur propre licence, la SIL Open Font License 1.1.
