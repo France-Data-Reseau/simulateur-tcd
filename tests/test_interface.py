@@ -1,10 +1,13 @@
-"""Tests des éléments d'interface : palette des cas d'usage (variables CSS, couleurs de graphiques, pictogrammes) et textes.
-Usage : python3 test_interface.py   (nécessite Pillow)"""
+"""Tests des éléments d'interface : palette des cas d'usage (variables CSS, couleurs de graphiques, pictogrammes), textes
+et autonomie de la page publiée (aucune ressource externe).
+Usage : python3 build.py && python3 tests/test_interface.py   (nécessite Pillow)"""
 import base64, io, re, sys
+from pathlib import Path
 from PIL import Image
 
+ROOT = Path(__file__).resolve().parent.parent
 PALETTE = {"eau": "#29ABA3", "ep": "#DE9111", "energie": "#248ED5", "pav": "#556879", "bacs": "#556879", "arrosage": "#29ABA3", "inondation": "#EB7360"}
-template = open("template.html", encoding="utf-8").read(); app = open("app.js", encoding="utf-8").read()
+template = (ROOT / "src" / "template.html").read_text(encoding="utf-8"); app = (ROOT / "src" / "app.js").read_text(encoding="utf-8")
 ok_global = True
 def check(nom, cond, detail=""):
     global ok_global; ok_global &= bool(cond); print(f"  [{'OK' if cond else 'ÉCHEC'}] {nom}" + (f" — {detail}" if detail else ""))
@@ -42,6 +45,18 @@ for cas, h in PALETTE.items():
 
 print("4) Textes")
 check("bandeau « économisés » sans « argument de mutualisation »", "argument de mutualisation" not in app.lower())
-check("sortie Python alignée (« Économie de mutualisation »)", "Argument de mutualisation" not in open("moteur_calcul.py", encoding="utf-8").read())
+check("sortie Python alignée (« Économie de mutualisation »)", "Argument de mutualisation" not in (ROOT / "moteur_calcul.py").read_text(encoding="utf-8"))
+
+print("5) Page publiée (public/index.html) autonome")
+page = (ROOT / "public" / "index.html").read_text(encoding="utf-8")
+check("aucun appel à Google Fonts", "fonts.googleapis" not in page and "fonts.gstatic" not in page)
+externes = re.findall(r'(?:src|href)\s*=\s*["\'](?:https?:)?//[^"\']+', page) + re.findall(r'url\(\s*["\']?(?:https?:)?//[^)]+', page)
+check("aucune ressource chargée depuis un autre site", not externes, ", ".join(externes[:3]))
+for famille in ("Inter", "Space Grotesk"):
+    check(f"police {famille} embarquée (woff2 en base64)",
+          re.search(rf"@font-face\{{\s*font-family:'{famille}';[^}}]*src:url\(data:font/woff2;base64,", page) is not None)
+check("icône d'onglet embarquée", '<link rel="icon" type="image/png" href="data:image/png;base64,' in page)
+check("description de la page renseignée", re.search(r'<meta name="description" content="[^"]{50,}">', page) is not None)
+check("aucun marqueur de gabarit non remplacé", not re.findall(r"__[A-Z0-9_]+__", page), ", ".join(sorted(set(re.findall(r"__[A-Z0-9_]+__", page)))[:5]))
 print("\n>>> TOUS LES TESTS PASSENT" if ok_global else "\n>>> ÉCHEC")
 sys.exit(0 if ok_global else 1)

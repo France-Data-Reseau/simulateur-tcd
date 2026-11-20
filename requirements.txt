@@ -1,0 +1,6 @@
+# Dépendances Python du moteur en ligne de commande (moteur_calcul.py) et des tests.
+# build.py, lui, n'utilise que la bibliothèque standard (Python 3.8+).
+# Installation : python3 -m pip install -r requirements.txt
+pandas>=2.0
+Pillow>=10.0     # tests/test_interface.py
+openpyxl>=3.1    # tests/test_inondation.py, réconciliation avec l'Excel (facultative)

@@ -1,0 +1,11 @@
+# Dépendances installées localement
+node_modules/
+.venv/
+venv/
+
+# Fichiers générés par Python
+__pycache__/
+*.pyc
+
+# Système
+.DS_Store

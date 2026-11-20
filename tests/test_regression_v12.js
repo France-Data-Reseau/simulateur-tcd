@@ -1,8 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 const { JSDOM } = require('jsdom');
-let html = fs.readFileSync('mon_territoire_donnees.html', 'utf-8');
-html = html.replace(/<link[^>]*fonts\.(googleapis|gstatic)[^>]*>/g, '');
-const hypFile = JSON.parse(fs.readFileSync('hypotheses.json', 'utf-8'));
+const ROOT = path.join(__dirname, '..');
+let html = fs.readFileSync(path.join(ROOT, 'public', 'index.html'), 'utf-8');
+const hypFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'hypotheses.json'), 'utf-8'));
 
 const testScript = `
 <script>
